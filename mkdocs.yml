@@ -1,0 +1,6 @@
+site_name: NEWDB — Документация по API
+theme:
+  name: material
+  custom_dir: theme
+nav:
+  - Главная: index.md
