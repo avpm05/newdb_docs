@@ -1,0 +1,108 @@
+/* Интер и «сглаженная» прокрутка */
+:root {
+  --ndb-blue: #2563eb;   /* tailwind blue-600 */
+  --ndb-blue-hover: #1d4ed8; /* blue-700 */
+  --ndb-bg: #f9fafb;     /* gray-50 */
+  --ndb-text: #1f2937;   /* gray-800 */
+  --ndb-muted: #6b7280;  /* gray-500/600 mix */
+  --ndb-border: #e5e7eb; /* gray-200 */
+  --ndb-card: #ffffff;
+  --radius-xl: 1rem;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; }
+
+/* Контейнеры */
+.ndb-container { background: var(--ndb-bg); color: var(--ndb-text); }
+.ndb-hero {
+  padding: 7rem 1.5rem 5rem;
+  text-align: center;
+}
+.ndb-hero__inner { max-width: 56rem; margin: 0 auto; }
+.ndb-hero__title {
+  font-weight: 700; line-height: 1.15;
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  color: #111827; /* gray-900 */
+  margin: 0 0 1rem;
+}
+.ndb-hero__subtitle {
+  font-size: 1.125rem; color: var(--ndb-muted);
+  max-width: 42rem; margin: 0.75rem auto 2rem;
+}
+
+/* Кнопки */
+.ndb-btn {
+  display: inline-block; padding: 0.85rem 1.25rem; border-radius: 0.9rem;
+  text-decoration: none; font-weight: 600; transition: background .2s, color .2s, border-color .2s;
+  border: 1px solid transparent;
+}
+.ndb-btn--primary { background: var(--ndb-blue); color: #fff; }
+.ndb-btn--primary:hover { background: var(--ndb-blue-hover); }
+.ndb-btn--ghost { background: transparent; color: var(--ndb-blue); border-color: var(--ndb-blue); }
+.ndb-btn--ghost:hover { background: #eff6ff; /* blue-50 */ }
+
+/* Секции */
+.ndb-section { padding: 4rem 1.5rem; max-width: 80rem; margin: 0 auto; }
+.ndb-section__grid {
+  display: grid; gap: 2rem; grid-template-columns: repeat(1, minmax(0,1fr));
+}
+@media (min-width: 768px) {
+  .ndb-section__grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+/* Карточки */
+.ndb-card {
+  background: var(--ndb-card);
+  padding: 2rem; border-radius: 1rem;
+  border: 1px solid var(--ndb-border);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.02);
+  transition: box-shadow .2s, transform .2s;
+}
+.ndb-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+.ndb-card__icon { font-size: 2rem; margin-bottom: .5rem; color: var(--ndb-blue); }
+.ndb-card__title { font-weight: 600; font-size: 1.125rem; margin: 0.25rem 0 .25rem; }
+.ndb-card__text { color: var(--ndb-muted); }
+
+/* Процесс */
+.ndb-process { background: #fff; padding: 4rem 1.5rem; }
+.ndb-process__header { max-width: 48rem; margin: 0 auto 2rem; text-align: center; }
+.ndb-process__header h2 { font-size: 2rem; font-weight: 700; margin: 0 0 .5rem; }
+.ndb-process__header p { color: var(--ndb-muted); }
+.ndb-process__grid {
+  display: grid; gap: 1.5rem; max-width: 64rem; margin: 0 auto;
+  grid-template-columns: repeat(1, minmax(0,1fr));
+}
+@media (min-width: 768px) {
+  .ndb-process__grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+.ndb-step {
+  padding: 1.25rem; border: 1px solid var(--ndb-border);
+  border-radius: 0.9rem; transition: box-shadow .2s;
+  background: #fff;
+}
+.ndb-step:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.ndb-step__num { font-size: 2rem; font-weight: 700; color: var(--ndb-blue); margin: 0 0 .25rem; }
+.ndb-step__title { margin: 0 0 .25rem; font-weight: 600; }
+.ndb-step__text { color: var(--ndb-muted); font-size: .95rem; }
+
+/* Контакты */
+.ndb-contact { padding: 4rem 1.5rem; text-align: center; }
+.ndb-contact h2 { font-size: 2rem; font-weight: 700; margin: 0 0 .75rem; }
+.ndb-contact__lead { color: var(--ndb-muted); margin-bottom: 1.25rem; }
+.ndb-contact__actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+
+/* Футер */
+.ndb-footer {
+  background: #f3f4f6; /* gray-100 */
+  border-top: 1px solid var(--ndb-border);
+  padding: 1.5rem;
+}
+.ndb-footer__inner {
+  max-width: 80rem; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap;
+  align-items: center; justify-content: space-between;
+}
+.ndb-footer__links a {
+  color: var(--ndb-blue); text-decoration: none; margin-left: 1rem;
+}
+.ndb-footer__links a:hover { color: var(--ndb-blue-hover); }

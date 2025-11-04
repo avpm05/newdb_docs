@@ -1,6 +1,30 @@
-site_name: NEWDB — Документация по API
 theme:
   name: material
-  custom_dir: theme
-nav:
-  - Главная: index.md
+  language: ru
+  custom_dir: overrides
+  logo: docs/assets/logo.svg
+  favicon: docs/assets/favicon.png
+  features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - content.tooltips
+    - search.suggest
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: indigo
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: indigo
+
+extra_css:
+  - styles/extra.css
