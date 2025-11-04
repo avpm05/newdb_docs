@@ -1,5 +1,12 @@
+site_name: NewDB Docs
+site_description: Корпоративная документация для платформы NewDB DaaS
+site_url: https://avpm05.github.io/newdb_docs/
+repo_url: https://github.com/avpm05/newdb_docs
+repo_name: avpm05/newdb_docs
+
 theme:
   name: material
+  custom_dir: overrides
   language: ru
   custom_dir: overrides
   logo: docs/assets/logo.svg
@@ -28,3 +35,9 @@ theme:
 
 extra_css:
   - styles/extra.css
+
+nav:
+  - Главная: index.md
+  - Быстрый старт: getting-started.md
+  - API: api.md
+  - Контакты: contact.md

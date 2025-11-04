@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block htmltitle %}
+  <title>{{ config.site_name }}</title>
+{% endblock %}
+
+{% block extrahead %}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #f9fafb; }
+    main { padding-top: 6rem; } /* отступ под фиксированный header */
+  </style>
+{% endblock %}
+
+{% block header %}
+<header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Логотип -->
+    <a href="{{ base_url }}/" class="text-2xl font-bold text-blue-600">NewDB</a>
+
+    <!-- Навигация -->
+    <nav class="hidden md:flex space-x-10 text-gray-700 font-medium">
+      <a href="{{ base_url }}/#features" class="hover:text-blue-600 transition">Преимущества</a>
+      <a href="{{ base_url }}/#process" class="hover:text-blue-600 transition">Как работает</a>
+      <a href="{{ base_url }}/#contact" class="hover:text-blue-600 transition">Контакты</a>
+    </nav>
+
+    <!-- Кнопка CTA -->
+    <a href="mailto:access@newdb.net" class="bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-medium hover:bg-blue-700 transition">
+      Получить доступ
+    </a>
+  </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+  <main class="max-w-6xl mx-auto px-6 py-24 bg-gray-50 min-h-screen">
+    <article class="prose prose-lg prose-blue max-w-none">
+      {{ page.content }}
+    </article>
+  </main>
+{% endblock %}
+
+{% block footer %}
+<footer class="bg-gray-100 py-8 border-t mt-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+    <p class="text-gray-500 text-sm">© 2025 NewDB. Все права защищены.</p>
+    <div class="flex space-x-4 mt-4 md:mt-0">
+      <a href="mailto:access@newdb.net" class="text-blue-600 hover:text-blue-800">Email</a>
+      <a href="https://t.me/newdb_manager" class="text-blue-600 hover:text-blue-800">Telegram</a>
+    </div>
+  </div>
+</footer>
+{% endblock %}
