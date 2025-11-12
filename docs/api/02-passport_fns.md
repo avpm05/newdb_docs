@@ -74,7 +74,7 @@ X-API-KEY: YOUR_TOKEN
   "tools": [
     {
       "name": "inn_company",
-      "description": "Получение сведений о юридическом лице по ИНН",
+      "description": "Проверка паспорт РФ и ИНН через ФНС России",
       "input_schema": {
         "innyur": "string",
         "country": "string"
@@ -82,6 +82,6 @@ X-API-KEY: YOUR_TOKEN
       "headers_required": ["X-API-KEY"]
     }
   ],
-  "policy": "Если пользователь прислал ИНН компании — вызывай inn_company и верни базовые сведения."
+  "policy": "Если пользователь прислал  паспортаные данные — вызывай passport_fns и верни сведения по ИНН ."
 }
 ```
