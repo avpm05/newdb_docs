@@ -1,6 +1,6 @@
 # passport_check — Проверка паспорта РФ
 
-POST `${{ extra.api_base_url }}/run`
+POST `https://api.newdb.net/v2`
 
 Проверяет паспорт РФ по серии/номеру и (опционально) ФИО/дате рождения.
 
