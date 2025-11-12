@@ -1,6 +1,7 @@
 site_name: NEWDB API Docs
 site_description: Документация по REST API NEWDB и метаданные для AI-агентов
-site_url: https://docs.newdb.net
+site_url: https://newdb.net/docs
+use_directory_urls: true
 
 theme:
   name: material
@@ -38,3 +39,5 @@ markdown_extensions:
 
 extra:
   api_base_url: https://api.newdb.net/v2
+  base_path: /docs/
+
