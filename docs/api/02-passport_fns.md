@@ -1,4 +1,4 @@
-# passport_fns — Проверка юридического лица по ИНН
+# passport_fns — Проверка  паспорта/ИНН через ФНС
 
 POST `https://api.newdb.net/v2`
 
