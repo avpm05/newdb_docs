@@ -18,7 +18,7 @@ X-API-KEY: <your_token>
     "lastname": "string",
     "secondname": "string",
     "dob": "YYYY-MM-DD",
-    "regioncode": 66,
+    "regioncode": "number",
     "country": "ru",
     "method": "fssp_person"
   },
@@ -29,7 +29,7 @@ X-API-KEY: <your_token>
 
 ## Пример запроса
 ```http
-POST /v2/run HTTP/1.1
+POST /v2 HTTP/1.1
 Host: api.newdb.net
 Content-Type: application/json
 X-API-KEY: YOUR_TOKEN
@@ -115,3 +115,90 @@ X-API-KEY: YOUR_TOKEN
 ```
 
 ## x-ai (метаданные для AI)
+```
+{
+  "tools": [
+    {
+      "name": "fssp_person",
+      "description": "Проверка физического лица по базе исполнительных производств ФССП России. Возвращает сведения о долгах, судебных приказах и судебных приставах по ФИО, дате рождения и региону.",
+      "input_schema": {
+        "firstname": "string",
+        "lastname": "string",
+        "secondname": "string",
+        "dob": "string (YYYY-MM-DD)",
+        "regioncode": "number",
+        "country": "string (ru)",
+        "method": "string (fssp_person)",
+        "webhook": "string (URL)",
+        "requestId": "string (optional)"
+      },
+      "output_schema": {
+        "requestId": "string",
+        "datecreated": "string (YYYY-MM-DD HH:MM:SS)",
+        "state": "string (complete|processing|error)",
+        "results": {
+          "fssp_person": {
+            "taskId": "string",
+            "dateupdated": "string (YYYY-MM-DD HH:MM:SS)",
+            "result": {
+              "status": "number (HTTP status)",
+              "data": [
+                {
+                  "Debtor": "string — ФИО и дата рождения должника",
+                  "EnforcementProceeding": "string — Номер и дата исполнительного производства",
+                  "WritDetails": "string — Реквизиты исполнительного листа или судебного приказа",
+                  "SubjectAndDebtAmount": "string — Сумма долга и тип взыскания",
+                  "BailiffDepartment": "string — Отдел судебных приставов",
+                  "BailiffOfficer": "string — ФИО пристава-исполнителя",
+                  "Phone": "string — Контактный телефон отдела"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "example": {
+        "request": {
+          "params": {
+            "firstname": "Алиса",
+            "lastname": "Иванова",
+            "secondname": "Егоровна",
+            "dob": "1987-11-27",
+            "regioncode": 66,
+            "country": "ru",
+            "method": "fssp_person"
+          },
+          "webhook": "https://newer.net/whook"
+        },
+        "response": {
+          "requestId": "3122f8c9-08ff-439a-8550-54ca099e3124",
+          "datecreated": "2025-11-09 23:58:38",
+          "state": "complete",
+          "results": {
+            "fssp_person": {
+              "taskId": "eeaaac06-aacc-45d9-964a-431022fe2fdd",
+              "dateupdated": "2025-11-09 20:59:43",
+              "result": {
+                "status": 200,
+                "data": [
+                  {
+                    "Debtor": "ИВАНОВА АЛИСА ЕГОРОВНА 27.11.1987 Г. СЕВЕРОУРАЛЬСК",
+                    "EnforcementProceeding": "88442/25/66049-ИП от 09.09.2025",
+                    "WritDetails": "Исполнительный лист № 2-19/2025 от 05.09.2025 СЕВЕРОУРАЛЬСКИЙ ГОРОДСКОЙ СУД",
+                    "SubjectAndDebtAmount": "Сумма долга: 30000.00 руб.",
+                    "BailiffDepartment": "Североуральское РОСП, ул. Ватутина, д. 18",
+                    "BailiffOfficer": "БАРАБАНОВА С. В.",
+                    "Phone": "+7(34380)2-36-40"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "headers_required": ["X-API-KEY"]
+    }
+  ],
+  "policy": "Если пользователь спрашивает о долгах, судебных приставах, исполнительных производствах или хочет проверить человека по ФИО и дате рождения — вызывай метод fssp_person и верни сведения из базы ФССП."
+}
+```

@@ -92,14 +92,77 @@ X-API-KEY: YOUR_TOKEN
   "tools": [
     {
       "name": "inn_company",
-      "description": "Проверка паспорта РФ и ИНН через ФНС России",
+      "description": "Проверка паспорта РФ и получение ИНН физического лица через Федеральную налоговую службу России (ФНС). Возвращает ИНН, если он найден по введённым паспортным данным.",
       "input_schema": {
-        "innyur": "string",
-        "country": "string"
+        "seria": "string — серия паспорта РФ (4 цифры)",
+        "number": "string — номер паспорта РФ (6 цифр)",
+        "firstname": "string — имя",
+        "lastname": "string — фамилия",
+        "secondname": "string — отчество",
+        "dob": "string (YYYY-MM-DD) — дата рождения",
+        "country": "string (ru)",
+        "method": "string (passport_fns)",
+        "webhook": "string (URL для webhook)",
+        "requestId": "string (optional)"
+      },
+      "output_schema": {
+        "state": "string (complete|processing|error)",
+        "results": {
+          "company": {
+            "result": {
+              "status": "number (HTTP status)",
+              "data": [
+                {
+                  "innfiz": "string — найденный ИНН физического лица"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "example": {
+        "request": {
+          "params": {
+            "seria": "4015",
+            "number": "350278",
+            "firstname": "Александр",
+            "secondname": "Сергеевич",
+            "lastname": "Малина",
+            "dob": "1990-12-17",
+            "country": "ru",
+            "method": "passport_fns"
+          },
+          "webhook": "https://webhook_url/",
+          "requestId": "19342f89-2916-4779-b59d-43c012f1a781"
+        },
+        "response_success": {
+          "state": "complete",
+          "results": {
+            "company": {
+              "result": {
+                "status": 200,
+                "data": [
+                  { "innfiz": "7703245603" }
+                ]
+              }
+            }
+          }
+        },
+        "response_empty": {
+          "state": "complete",
+          "results": {
+            "company": {
+              "result": {
+                "status": 200,
+                "data": []
+              }
+            }
+          }
+        }
       },
       "headers_required": ["X-API-KEY"]
     }
   ],
-  "policy": "Если пользователь прислал  паспортаные данные — вызывай passport_fns и верни сведения по ИНН ."
+  "policy": "Если пользователь прислал паспортные данные (серия, номер, ФИО, дата рождения) или спрашивает 'найти ИНН по паспорту', 'узнать ИНН', 'проверить налоговую регистрацию' — вызывай метод inn_company (passport_fns) и верни найденный ИНН физического лица."
 }
 ```

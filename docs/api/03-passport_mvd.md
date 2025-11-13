@@ -87,19 +87,83 @@ X-API-KEY: YOUR_TOKEN
   "tools": [
     {
       "name": "passport_check",
-      "description": "Проверка паспорта РФ по серии и номеру",
+      "description": "Проверка паспорта РФ по серии и номеру на действительность",
       "input_schema": {
-        "seria": "string",
-        "number": "string",
-        "firstname": "string",
-        "lastname": "string",
-        "secondname": "string",
-        "dob": "YYYY-MM-DD",
-        "country": "string"
+        "seria": "string (4 цифры)",
+        "number": "string (6 цифр)",
+        "firstname": "string (optional)",
+        "lastname": "string (optional)",
+        "secondname": "string (optional)",
+        "dob": "string (YYYY-MM-DD)",
+        "country": "string ('ru')",
+        "method": "string ('passport_mvd')",
+        "webhook": "string (optional, URL)",
+        "requestId": "string (optional)"
+      },
+      "output_schema": {
+        "state": "string (complete|in_progress|error)",
+        "results": {
+          "passport_mvd": {
+            "taskId": "string",
+            "dateupdated": "string (YYYY-MM-DD HH:MM:SS)",
+            "result": {
+              "status": "number (HTTP status)",
+              "data": [
+                {
+                  "status": "string ('Действительный' | 'Недействительный')",
+             
+                  "error": "string (optional — причина ошибки)",
+                  
+                }
+              ]
+            }
+          }
+        }
+      },
+      "example": {
+        "request": {
+          "params": {
+            "seria": "0802",
+            "number": "649286",
+            "firstname": "Петр",
+            "lastname": "Семенов",
+            "secondname": "Николаевич",
+            "dob": "1937-01-03",
+            "country": "ru",
+            "method": "passport_mvd"
+          }
+        },
+        "response_valid": {
+          "state": "complete",
+          "results": {
+            "passport_mvd": {
+              "result": {
+                "status": 200,
+                "data": [{ "status": "Действительный" }]
+              }
+            }
+          }
+        },
+        "response_invalid": {
+          "state": "complete",
+          "results": {
+            "passport_mvd": {
+              "result": {
+                "status": 500,
+                "data": [
+                  {
+                    "error": "Service unavailable",
+                  }
+                ]
+              }
+            }
+          }
+        }
       },
       "headers_required": ["X-API-KEY"]
     }
   ],
-  "policy": "Если пользователь просит проверить паспорт — спроси серию и номер, затем вызови passport_check."
+  "policy": "Если пользователь просит проверить паспорт РФ, запрашивай серию и номер, фамилию и имя. Затем вызывай passport_mvd  method='passport_mvd' и верни статус действия паспорта. Если серия/номер не указаны — вежливо запроси их."
 }
+
 ```
