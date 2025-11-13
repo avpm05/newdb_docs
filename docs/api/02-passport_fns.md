@@ -1,4 +1,4 @@
-# inn_company — Проверка юридического лица по ИНН
+# passport_fns — Проверка юридического лица по ИНН
 
 POST `https://api.newdb.net/v2`
 

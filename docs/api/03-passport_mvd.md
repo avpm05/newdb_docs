@@ -1,4 +1,4 @@
-# passport_check — Проверка паспорта РФ
+# passport_mvd — Проверка паспорта РФ на действительность
 
 POST `https://api.newdb.net/v2`
 
