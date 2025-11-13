@@ -20,7 +20,7 @@ X-API-KEY: <your_token>
     "lastname": "string",
     "secondname": "string",
     "dob": "YYYY-MM-DD",
-    "method": "passport",
+    "method": "passport_mvd",
     "country": "ru"
   },
   "webhook": "https://your.host/whook",
@@ -45,7 +45,7 @@ X-API-KEY: YOUR_TOKEN
     "secondname": "Николаевич",
     "dob": "1937-01-03",
     "country": "ru",
-    "method": "passport"
+    "method": "passport_mvd"
   },
   "webhook": "https://webhook_url/",
   "requestId": "19342f89-2916-4779-b59d-43c012f1a781"
