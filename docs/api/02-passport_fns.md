@@ -2,7 +2,7 @@
 
 POST `https://api.newdb.net/v2`
 
-Ищет сведения о юридическом лице по ИНН (ФНС + дополнительные источники).
+Проверка паспорта и ИНН через сервисы ФНС.
 
 ## Заголовки
 ```
@@ -40,9 +40,10 @@ X-API-KEY: YOUR_TOKEN
 "seria":"4015",
 "number":"350278",
 "firstname": "Александр", 
+"secondname": "Сергеевич",
 "lastname": "Малина", 
-"secondname": "",
-"dob": "1995-08-17",
+
+"dob": "1990-12-17",
 "country": "ru",
 "method":"passport_fns"
 },
@@ -51,7 +52,7 @@ X-API-KEY: YOUR_TOKEN
 }
 ```
 
-## Пример ответа
+## Пример ответа (ИНН найден)
 ```json
 {
   "state": "complete",
@@ -60,7 +61,7 @@ X-API-KEY: YOUR_TOKEN
       "result": {
         "status": 200,
         "data": [
-          { "innfiz": "7703795603"  }
+          { "innfiz": "7703245603"  }
         ]
       }
     }
@@ -68,13 +69,30 @@ X-API-KEY: YOUR_TOKEN
 }
 ```
 
+
+## Пример ответа (ИНН не найден)
+```json
+{
+  "state": "complete",
+  "results": {
+    "company": {
+      "result": {
+        "status": 200,
+        "data": []
+      }
+    }
+  }
+}
+```
+
+
 ## x-ai (метаданные для AI)
 ```json
 {
   "tools": [
     {
       "name": "inn_company",
-      "description": "Проверка паспорт РФ и ИНН через ФНС России",
+      "description": "Проверка паспорта РФ и ИНН через ФНС России",
       "input_schema": {
         "innyur": "string",
         "country": "string"

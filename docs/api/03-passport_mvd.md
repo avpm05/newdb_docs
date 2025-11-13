@@ -2,7 +2,7 @@
 
 POST `https://api.newdb.net/v2`
 
-Проверяет паспорт РФ по серии/номеру и (опционально) ФИО/дате рождения.
+Проверяет паспорт РФ по серии/номеру и фамилии, имени.
 
 ## Заголовки
 ```
@@ -28,7 +28,7 @@ X-API-KEY: <your_token>
 
 ## Пример запроса
 ```http
-POST /v2/run HTTP/1.1
+POST /v2 HTTP/1.1
 Host: api.newdb.net
 Content-Type: application/json
 X-API-KEY: YOUR_TOKEN
