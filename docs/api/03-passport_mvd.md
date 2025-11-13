@@ -22,17 +22,20 @@ X-API-KEY: <your_token>
     "dob": "YYYY-MM-DD",
     "method": "passport",
     "country": "ru"
-  }
+  },
+  "webhook": "https://your.host/whook",
+  "requestId": "optional-string"
+}
 }
 ```
 
 ## Пример запроса
-```http
+
 POST /v2 HTTP/1.1
 Host: api.newdb.net
 Content-Type: application/json
 X-API-KEY: YOUR_TOKEN
-
+```
 {
   "params": {
     "seria": "0802",
@@ -43,7 +46,9 @@ X-API-KEY: YOUR_TOKEN
     "dob": "1937-01-03",
     "country": "ru",
     "method": "passport"
-  }
+  },
+  "webhook": "https://webhook_url/",
+  "requestId": "19342f89-2916-4779-b59d-43c012f1a781"
 }
 ```
 
