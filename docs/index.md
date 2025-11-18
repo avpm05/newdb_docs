@@ -1,12 +1,22 @@
-# NEWDB API Documentation
+# NEWDB — REST API
 
-Добро пожаловать в документацию API для NEWDB.
+Добро пожаловать в документацию NEWDB. Здесь вы найдёте описание REST API, примеры запросов/ответов,
+а также **метаданные для AI-агентов** (раздел `x-ai` в описаниях методов).
 
-## Пример запроса
+## Базовый URL
 
-```bash
-curl -X POST "{{api_prod}}" \
-  -H "Content-Type: application/json" \
-  -H "X-API-KEY: {{token}}" \
-  -d '{ "params": { "seria": "4115", "number": "350298" }, "requestId": "32ec1efd" }'
 ```
+https://api.newdb.net/v2
+```
+
+## Аутентификация
+
+Передавайте токен в заголовке:
+
+```
+X-API-KEY: <your_token>
+```
+
+## Разделы
+- Обзор API
+- Методы: ФССП (физ. лица), ЮЛ по ИНН, Паспорт РФ
