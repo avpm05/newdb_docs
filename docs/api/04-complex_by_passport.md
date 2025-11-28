@@ -14,14 +14,12 @@ POST `https://api.newdb.net/v2`
 
 ## Заголовки
 
-```
+ 
 
 Content-Type: application/json
 X-API-KEY: <your_token>
 
-````
-
----
+ 
 
 ## Входная схема (request)
 
@@ -41,13 +39,13 @@ X-API-KEY: <your_token>
   "webhook": "https://your.host/whook",
   "requestId": "optional-string"
 }
-````
+```
 
 ---
 
 ## Пример запроса
 
-```http
+```json
 POST /v2 HTTP/1.1
 Host: api.newdb.net
 Content-Type: application/json
@@ -149,7 +147,7 @@ X-API-KEY: YOUR_TOKEN
 
 ## x-ai (метаданные для AI)
 
-```
+```json
 {
   "tools": [
     {
