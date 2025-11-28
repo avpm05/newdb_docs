@@ -1,6 +1,44 @@
-site_name: NEWDB — Документация по API
+site_name: NEWDB API Docs
+site_description: Документация по REST API NEWDB и метаданные для AI-агентов
+site_url: https://newdb.net/docs
+use_directory_urls: true
+
 theme:
   name: material
-  custom_dir: theme
+  language: ru
+  features:
+    - navigation.top
+    - navigation.sections
+    - navigation.tracking
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+
 nav:
   - Главная: index.md
+  - API:
+      - Обзор: api/README.md
+      - Проверка ФЛ (ФССП): api/01-fssp_person.md
+      - Проверка паспорта и ИНН через ФНС: api/02-passport_fns.md
+      - Проверка паспорта РФ на действительность: api/03-passport_mvd.md
+      - Комплексная проверка по паспорту: api/04-complex_by_passport.md
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji
+  - toc:
+      permalink: true
+
+extra:
+  api_base_url: https://api.newdb.net/v2
+  base_path: /docs/
+
