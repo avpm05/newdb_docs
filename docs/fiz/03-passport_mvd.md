@@ -1,3 +1,15 @@
+---
+title: "passport_mvd — проверка паспорта РФ на действительность"
+description: "Метод NEWDB passport_mvd подтверждает действительность паспорта РФ по серии, номеру и ФИО через базы МВД."
+meta:
+  - name: keywords
+    content: "NEWDB API, passport_mvd, проверка паспорта, МВД, верификация личности"
+  - property: og:title
+    content: "Проверка паспорта РФ — метод passport_mvd"
+  - property: og:description
+    content: "Спецификация запроса, заголовков и ответов метода passport_mvd для подтверждения действительности паспорта."
+---
+
 # passport_mvd — Проверка паспорта РФ на действительность
 
 POST `https://api.newdb.net/v2`
@@ -85,6 +97,9 @@ X-API-KEY: YOUR_TOKEN
     "datecreated": "2025-11-02 22:48:00"
 }
 ```
+
+
+
 
 ## x-ai (метаданные для AI)
 ```json

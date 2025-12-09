@@ -1,3 +1,15 @@
+---
+title: "NEWDB API — документация и подключение"
+description: "Официальное руководство по REST API NEWDB: базовый URL, аутентификация и обзор ключевых разделов."
+meta:
+  - name: keywords
+    content: "NEWDB API, REST, документация, интеграция, AI агенты"
+  - property: og:title
+    content: "NEWDB API — документация и подключение"
+  - property: og:description
+    content: "Инструкция по подключению к REST API NEWDB с примерами токенов и доступных разделов."
+---
+
 # NEWDB — REST API
 
 Добро пожаловать в документацию NEWDB. Здесь вы найдёте описание REST API, примеры запросов/ответов,

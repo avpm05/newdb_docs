@@ -18,12 +18,17 @@ theme:
 
 nav:
   - Главная: index.md
-  - API:
-      - Обзор: api/README.md
-      - Проверка ФЛ (ФССП): api/01-fssp_person.md
-      - Проверка паспорта и ИНН через ФНС: api/02-passport_fns.md
-      - Проверка паспорта РФ на действительность: api/03-passport_mvd.md
-      - Комплексная проверка по паспорту: api/04-complex_by_passport.md
+  - Физические лица:
+      - Обзор: fiz/README.md
+      - Проверка ФЛ (ФССП): fiz/01-fssp_person.md
+      - Проверка паспорта и ИНН через ФНС: fiz/02-passport_fns.md
+      - Проверка паспорта РФ на действительность: fiz/03-passport_mvd.md
+      - Комплексная проверка по паспорту: fiz/04-complex_by_passport.md
+      - Проверка на банкротство (Федресурс): fiz/05-fedresurs_bankrot.md
+  - Юридические лица:
+      - Обзор: legal/index.md
+  - Имущество:
+      - Обзор: property/index.md
 
 plugins:
   - search
@@ -41,4 +46,3 @@ markdown_extensions:
 extra:
   api_base_url: https://api.newdb.net/v2
   base_path: /docs/
-
