@@ -35,10 +35,10 @@ index 0000000..7d3b5a1
 +nav:
 +  - Главная: index.md
 +  - API:
-+      - Обзор: api/README.md
-+      - Проверка ФЛ (ФССП): api/01-fssp_person.md
-+      - Проверка ЮЛ по ИНН: api/02-inn_company.md
-+      - Проверка паспорта РФ: api/03-passport_check.md
++      - Обзор: fiz/README.md
++      - Проверка ФЛ (ФССП): fiz/01-fssp_person.md
++      - Проверка ЮЛ по ИНН: fiz/02-inn_company.md
++      - Проверка паспорта РФ: fiz/03-passport_check.md
 +
 +plugins:
 +  - search
@@ -83,11 +83,11 @@ index 0000000..f7f3af3
 +## Разделы
 +- Обзор API
 +- Методы: ФССП (физ. лица), ЮЛ по ИНН, Паспорт РФ
-diff --git b/docs/api/README.md a/docs/api/README.md
+diff --git b/docs/fiz/README.md a/docs/fiz/README.md
 new file mode 100644
 index 0000000..c6b3c1a
 --- /dev/null
-+++ b/docs/api/README.md
++++ b/docs/fiz/README.md
 @@ -0,0 +1,18 @@
 +# Обзор API
 +
@@ -107,11 +107,11 @@ index 0000000..c6b3c1a
 +```
 +${{ extra.api_base_url }}
 +```
-diff --git a/docs/api/01-fssp_person.md b/docs/api/01-fssp_person.md
+diff --git a/docs/fiz/01-fssp_person.md b/docs/fiz/01-fssp_person.md
 new file mode 100644
 index 0000000..f5a6f28
 --- /dev/null
-+++ b/docs/api/01-fssp_person.md
++++ b/docs/fiz/01-fssp_person.md
 @@ -0,0 +1,118 @@
 +# fssp_person — Проверка ФЛ по базе ФССП
 +
@@ -251,11 +251,11 @@ index 0000000..f5a6f28
 +  "policy": "Запрашивай ФИО, дату рождения и регион, затем вызывай fssp_person."
 +}
 +```
-diff --git a/docs/api/02-inn_company.md b/docs/api/02-inn_company.md
+diff --git a/docs/fiz/02-inn_company.md b/docs/fiz/02-inn_company.md
 new file mode 100644
 index 0000000..2a5c967
 --- /dev/null
-+++ b/docs/api/02-inn_company.md
++++ b/docs/fiz/02-inn_company.md
 @@ -0,0 +1,76 @@
 +# inn_company — Проверка юридического лица по ИНН
 +
@@ -330,11 +330,11 @@ index 0000000..2a5c967
 +  "policy": "Если пользователь прислал ИНН компании — вызывай inn_company и верни базовые сведения."
 +}
 +```
-diff --git a/docs/api/03-passport_check.md b/docs/api/03-passport_check.md
+diff --git a/docs/fiz/03-passport_check.md b/docs/fiz/03-passport_check.md
 new file mode 100644
 index 0000000..a2d2a1b
 --- /dev/null
-+++ b/docs/api/03-passport_check.md
++++ b/docs/fiz/03-passport_check.md
 @@ -0,0 +1,95 @@
 +# passport_check — Проверка паспорта РФ
 +

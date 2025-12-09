@@ -1,3 +1,15 @@
+---
+title: "passport_fns — проверка паспорта и ИНН через ФНС"
+description: "Метод NEWDB passport_fns для проверки паспорта РФ и поиска ИНН физлица через сервисы Федеральной налоговой службы."
+meta:
+  - name: keywords
+    content: "NEWDB API, passport_fns, ФНС, проверка паспорта, ИНН"
+  - property: og:title
+    content: "Проверка паспорта и ИНН через ФНС — метод passport_fns"
+  - property: og:description
+    content: "JSON-схема запроса и ответы метода passport_fns для получения ИНН по паспортным данным."
+---
+
 # passport_fns — Проверка  паспорта/ИНН через ФНС
 
 POST `https://api.newdb.net/v2`
