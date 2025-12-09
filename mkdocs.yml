@@ -25,6 +25,8 @@ nav:
       - Проверка паспорта РФ на действительность: fiz/03-passport_mvd.md
       - Комплексная проверка по паспорту: fiz/04-complex_by_passport.md
       - Проверка на банкротство (Федресурс): fiz/05-fedresurs_bankrot.md
+      - Залоги : fiz/06-pledge_person.md
+
   - Юридические лица:
       - Обзор: legal/index.md
   - Имущество:
