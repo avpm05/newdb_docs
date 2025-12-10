@@ -19,7 +19,7 @@ theme:
 nav:
   - Главная: index.md
   - Физические лица:
-      - Обзор: fiz/README.md
+#      - Обзор: fiz/README.md
       - Проверка ФЛ (ФССП): fiz/01-fssp_person.md
       - Проверка паспорта и ИНН через ФНС: fiz/02-passport_fns.md
       - Проверка паспорта РФ на действительность: fiz/03-passport_mvd.md
