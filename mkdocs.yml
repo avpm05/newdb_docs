@@ -30,7 +30,7 @@ nav:
   - Юридические лица:
       - Обзор: legal/index.md
   - Имущество:
-      - Обзор: property/index.md
+      - Обзор: property/01-rosreestr.md
 
 plugins:
   - search
