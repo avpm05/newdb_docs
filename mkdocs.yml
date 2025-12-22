@@ -30,7 +30,7 @@ nav:
   - Юридические лица:
       - Обзор: legal/index.md
   - Имущество:
-      - Обзор: property/01-rosreestr.md
+      - Росреестр: property/01-rosreestr.md
       - Залог по ID: property/02-pledge_property.md
       - Залог по VIN: property/03-pledge_vin.md
 
