@@ -17,6 +17,8 @@ POST `https://api.newdb.net/v2`
 
 Проверка паспорта и ИНН через сервисы ФНС.
 
+**Рекомендуем также:** комплексная проверка по паспорту — [complex_by_passport](04-complex_by_passport.md).
+
 ## Заголовки
 ```
 Content-Type: application/json
