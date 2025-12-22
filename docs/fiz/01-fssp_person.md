@@ -1,6 +1,7 @@
 ---
 title: "fssp_person — проверка физлица по базе ФССП"
 description: "API метод NEWDB fssp_person: поиск исполнительных производств по ФИО, дате рождения и региону в базе ФССП."
+canonical_url: https://newdb.net/docs/fiz/01-fssp_person/
 meta:
   - name: keywords
     content: "NEWDB API, fssp_person, ФССП, проверка должников, исполнительные производства"

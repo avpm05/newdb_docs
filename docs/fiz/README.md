@@ -1,6 +1,7 @@
 ---
 title: "Обзор REST API NEWDB"
 description: "Основные принципы работы REST API NEWDB: форматы запросов/ответов, аутентификация и структура webhook."
+canonical_url: https://newdb.net/docs/fiz/README/
 meta:
   - name: keywords
     content: "NEWDB API, обзор, JSON, webhook, аутентификация"

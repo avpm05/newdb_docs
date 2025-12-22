@@ -1,6 +1,7 @@
 ---
 title: "complex_by_passport — комплексная проверка по паспорту"
 description: "Метод NEWDB complex_by_passport объединяет проверки МВД, ФНС и ФССП для полного анализа физлица по данным паспорта."
+canonical_url: https://newdb.net/docs/fiz/04-complex_by_passport/
 meta:
   - name: keywords
     content: "NEWDB API, complex_by_passport, композитная проверка, ФНС, МВД, ФССП"

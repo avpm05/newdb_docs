@@ -1,6 +1,7 @@
 ---
 title: "NEWDB API — документация и подключение"
 description: "Официальное руководство по REST API NEWDB: базовый URL, аутентификация и обзор ключевых разделов."
+canonical_url: https://newdb.net/docs/
 meta:
   - name: keywords
     content: "NEWDB API, REST, документация, интеграция, AI агенты"

@@ -1,6 +1,7 @@
 ---
 title: "Юридические лица — раздел в разработке"
 description: "Здесь появятся методы NEWDB для проверки юридических лиц и компаний."
+canonical_url: https://newdb.net/docs/legal/
 meta:
   - name: keywords
     content: "NEWDB API, юридические лица, проверка компаний"

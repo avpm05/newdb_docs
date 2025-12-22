@@ -1,6 +1,7 @@
 ---
 title: "passport_mvd — проверка паспорта РФ на действительность"
 description: "Метод NEWDB passport_mvd подтверждает действительность паспорта РФ по серии, номеру и ФИО через базы МВД."
+canonical_url: https://newdb.net/docs/fiz/03-passport_mvd/
 meta:
   - name: keywords
     content: "NEWDB API, passport_mvd, проверка паспорта, МВД, верификация личности"

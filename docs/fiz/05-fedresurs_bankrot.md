@@ -1,6 +1,7 @@
 ---
 title: "fedresurs_bankrot — проверка на банкротство через ЕФРСБ"
 description: "Метод NEWDB fedresurs_bankrot ищет сведения о банкротстве физлица в Едином федеральном реестре сведений о банкротстве."
+canonical_url: https://newdb.net/docs/fiz/05-fedresurs_bankrot/
 meta:
   - name: keywords
     content: "NEWDB API, fedresurs_bankrot, ЕФРСБ, банкротство, проверка физлица"
