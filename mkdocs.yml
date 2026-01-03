@@ -26,9 +26,11 @@ nav:
       - Комплексная проверка по паспорту: fiz/04-complex_by_passport.md
       - Проверка на банкротство (Федресурс): fiz/05-fedresurs_bankrot.md
       - Залоги : fiz/06-pledge_person.md
+      - arbitr_person — арбитражные дела физлиц (КАД): fiz/07-arbitr_person.md
 
   - Юридические лица:
       - Обзор: legal/index.md
+      - arbitr_legal — арбитражные дела юрлиц (КАД): legal/01-arbitr_legal.md
   - Имущество:
       - Росреестр: property/01-rosreestr.md
       - Залог по ID: property/02-pledge_property.md
