@@ -18,6 +18,7 @@ theme:
 
 nav:
   - Главная: index.md
+  - Пример вызова API: api-example.md
   - Физические лица:
 #      - Обзор: fiz/README.md
       - Проверка ФЛ (ФССП): fiz/01-fssp_person.md
