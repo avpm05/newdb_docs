@@ -44,6 +44,12 @@ X-API-KEY: <your_token>
 }
 ```
 
+
+## Пояснения к полям
+- `doc_seria` и `doc_number` — реквизиты документа, который проверяем.
+- `blank_seria` и `blank_number` — серия и номер бланка.
+- `id_doc_seria` и `id_doc_number` — серия и номер документа, удостоверяющего личность.
+
 ## Пример запроса
 ```http
 POST /v2 HTTP/1.1
