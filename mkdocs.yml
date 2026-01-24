@@ -28,6 +28,12 @@ nav:
       - Проверка на банкротство (Федресурс): fiz/05-fedresurs_bankrot.md
       - Залоги : fiz/06-pledge_person.md
       - Арбитражные дела физлиц (КАД): fiz/07-arbitr_person.md
+  - Иностранные граждане:
+      - Вид на жительство (ВНЖ): foreign/01-foreign_vng.md
+      - Патент: foreign/02-foreign_patent.md
+      - РВП (штамп): foreign/03-foreign_rvp_stamp.md
+      - РВП (бланк): foreign/04-foreign_rvp_blank.md
+      - Разрешение на работу: foreign/05-foreign_rnr.md
 
   - Юридические лица:
       - Обзор: legal/index.md
