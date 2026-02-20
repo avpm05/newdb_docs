@@ -1,0 +1,13 @@
+{
+  "name": "NEWDB Docs",
+  "build": { "dockerfile": "Dockerfile", "context": ".." },
+  "settings": { "terminal.integrated.shell.linux": "/bin/bash" },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-azuretools.vscode-docker",
+    "gruntfuggly.todo-tree"
+  ],
+  "postCreateCommand": "pip install --upgrade pip && pip install mkdocs mkdocs-material mkdocs-mermaid2",
+  "remoteUser": "codespace"
+}

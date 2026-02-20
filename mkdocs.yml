@@ -1,6 +1,61 @@
-site_name: NEWDB — Документация по API
+site_name: NEWDB API Docs
+site_description: Документация по REST API NEWDB и метаданные для AI-агентов
+site_url: https://newdb.net/docs
+use_directory_urls: true
+
 theme:
   name: material
-  custom_dir: theme
+  language: ru
+  features:
+    - navigation.top
+    - navigation.sections
+    - navigation.tracking
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+
 nav:
   - Главная: index.md
+  - Пример вызова API: api-example.md
+  - Физические лица:
+#      - Обзор: fiz/README.md
+      - Проверка ФЛ (ФССП): fiz/01-fssp_person.md
+      - Проверка паспорта и ИНН через ФНС: fiz/02-passport_fns.md
+      - Проверка паспорта РФ на действительность: fiz/03-passport_mvd.md
+      - Комплексная проверка по паспорту: fiz/04-complex_by_passport.md
+      - Проверка на банкротство (Федресурс): fiz/05-fedresurs_bankrot.md
+      - Залоги : fiz/06-pledge_person.md
+      - Арбитражные дела физлиц (КАД): fiz/07-arbitr_person.md
+  - Иностранные граждане:
+      - Вид на жительство (ВНЖ): foreign/01-foreign_vng.md
+      - Патент: foreign/02-foreign_patent.md
+      - РВП (штамп): foreign/03-foreign_rvp_stamp.md
+      - РВП (бланк): foreign/04-foreign_rvp_blank.md
+      - Разрешение на работу: foreign/05-foreign_rnr.md
+
+  - Юридические лица:
+      - Обзор: legal/index.md
+      - Арбитражные дела юрлиц (КАД): legal/01-arbitr_legal.md
+  - Имущество:
+      - Росреестр: property/01-rosreestr.md
+      - Залог по ID: property/02-pledge_property.md
+      - Залог по VIN: property/03-pledge_vin.md
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji
+  - toc:
+      permalink: true
+
+extra:
+  api_base_url: https://api.newdb.net/v2
+  base_path: /docs/
