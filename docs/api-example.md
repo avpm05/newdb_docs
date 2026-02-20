@@ -73,7 +73,7 @@ GET https://api.newdb.net/v2/run?method=passport_mvd&seria=4115&number=350298&fi
 **Шаг 2. Получение результата**
 
 ```http
-GET https://api.newdb.net/v2
+POST https://api.newdb.net/v2
 ```
 * Отправить повторно POST запрос с тем же requestId
 
