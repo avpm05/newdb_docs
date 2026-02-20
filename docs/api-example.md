@@ -48,7 +48,7 @@ GET https://api.newdb.net/v2/run?method=passport_mvd&seria=4115&number=350298&fi
 }
 ```
 
-## Асинхронный метод (run + data)
+## Асинхронный метод
 
 Асинхронный режим состоит из двух шагов: отправка запроса и последующее получение результата по `requestId`.
 
@@ -73,8 +73,9 @@ GET https://api.newdb.net/v2/run?method=passport_mvd&seria=4115&number=350298&fi
 **Шаг 2. Получение результата**
 
 ```http
-GET https://api.newdb.net/v2/data?requestId=b4c61a6b-34cc-430e-bbeb-a6518014bca4
+GET https://api.newdb.net/v2
 ```
+* Отправить повторно POST запрос с тем же requestId
 
 **Пример ответа**
 
