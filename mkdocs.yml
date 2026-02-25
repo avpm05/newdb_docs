@@ -34,6 +34,7 @@ nav:
       - РВП (штамп): foreign/03-foreign_rvp_stamp.md
       - РВП (бланк): foreign/04-foreign_rvp_blank.md
       - Разрешение на работу: foreign/05-foreign_rnr.md
+      - Реестр контролируемых лиц (RKL): foreign/06-foreign_rkl.md
 
   - Юридические лица:
       - Обзор: legal/index.md
