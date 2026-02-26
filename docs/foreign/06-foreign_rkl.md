@@ -68,6 +68,54 @@ params_raw = json.dumps({
 }
 ```
 
+### Пример API-запроса (`dob_info` = только год)
+
+Для `dob_info = "2002"` spider выберет режим "Только год" (`optional = "2"`), в форме будет выбран год `2002`.
+
+```json
+{
+  "params": {
+    "method": "rkl",
+    "country": "ru",
+    "lastname": "Зиёдулла",
+    "firstname": "Бегимов",
+    "secondname": "Камолович ",
+    "dob_info": "2002",
+    "issue_date": "31.01.2002",
+    "id_doc_seria": "FA",
+    "id_doc_number": "2001901",
+    "newdb_qid": "EKYiIMO21ZnJMygA",
+    "taskId": "test-rkl-003-year"
+  },
+  "requestId": "optional-string",
+  "webhook": "https://your.host/webhook"
+}
+```
+
+### Пример API-запроса (`dob_info` = полная дата)
+
+Для `dob_info = "31.01.2002"` spider выберет режим "Полная дата" (`optional = "1"`), поле даты рождения будет заполнено значением `31012002`.
+
+```json
+{
+  "params": {
+    "method": "rkl",
+    "country": "ru",
+    "lastname": "Зиёдулла",
+    "firstname": "Бегимов",
+    "secondname": "Камолович ",
+    "dob_info": "31.01.2002",
+    "issue_date": "31.01.2002",
+    "id_doc_seria": "FA",
+    "id_doc_number": "2001901",
+    "newdb_qid": "EKYiIMO21ZnJMygA",
+    "taskId": "test-rkl-003-full-date"
+  },
+  "requestId": "optional-string",
+  "webhook": "https://your.host/webhook"
+}
+```
+
 ## Входные параметры (`params`)
 
 ```json
@@ -139,6 +187,8 @@ Spider переводит `dob_info` в один из режимов формы:
 ## Пример ответа
 
 Ниже пример структуры ответа NEWDB для метода `rkl`. Значение `registry_status` определяется из текста результата на экране Госуслуг:
+
+Формат ответа одинаковый для всех вариантов `dob_info` (`MM.YYYY`, `YYYY`, `DD.MM.YYYY`); меняется только значение, переданное в `params.dob_info`.
 
 - `not_found` — если в заголовке найдено "отсутствует в реестре контролируемых лиц"
 - `found` — если в заголовке найдено "в реестре контролируемых лиц"
