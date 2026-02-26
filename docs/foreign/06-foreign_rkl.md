@@ -32,9 +32,9 @@ X-API-KEY: <your_token>
 params_raw = json.dumps({
     "method": "rkl",
     "country": "ru",
-    "lastname": "Зиёдулла",
-    "firstname": "Бегимов",
-    "secondname": "Камолович ",
+    "lastname": "Иванов",
+    "firstname": "Иван",
+    "secondname": "Иванович",
     "dob_info": "01.2002",
     "issue_date": "31.01.2002",
     "id_doc_seria": "FA",
@@ -53,9 +53,9 @@ params_raw = json.dumps({
   "params": {
     "method": "rkl",
     "country": "ru",
-    "lastname": "Зиёдулла",
-    "firstname": "Бегимов",
-    "secondname": "Камолович ",
+    "lastname": "Иванов",
+    "firstname": "Иван",
+    "secondname": "Иванович",
     "dob_info": "01.2002",
     "issue_date": "31.01.2002",
     "id_doc_seria": "FA",
@@ -77,9 +77,9 @@ params_raw = json.dumps({
   "params": {
     "method": "rkl",
     "country": "ru",
-    "lastname": "Зиёдулла",
-    "firstname": "Бегимов",
-    "secondname": "Камолович ",
+    "lastname": "Иванов",
+    "firstname": "Иван",
+    "secondname": "Иванович",
     "dob_info": "2002",
     "issue_date": "31.01.2002",
     "id_doc_seria": "FA",
@@ -101,9 +101,9 @@ params_raw = json.dumps({
   "params": {
     "method": "rkl",
     "country": "ru",
-    "lastname": "Зиёдулла",
-    "firstname": "Бегимов",
-    "secondname": "Камолович ",
+    "lastname": "Иванов",
+    "firstname": "Иван",
+    "secondname": "Иванович",
     "dob_info": "31.01.2002",
     "issue_date": "31.01.2002",
     "id_doc_seria": "FA",
@@ -151,26 +151,8 @@ params_raw = json.dumps({
 - `YYYY` -> только год рождения.
 - `YYYY.MM` / `YYYY-MM` / `YYYY-MM-DD` /`YYYY/MM` -> также принимается для обратной совместимости и трактуется как год+месяц.
 
-Дополнительно:
-
-- Если переданы `optional`, `by`, `bm`, `bd`, то они имеют приоритет над `dob_info`.
-- Если `dob_info` не совпал с шаблонами, используется `dateutil.parse(..., dayfirst=True)` как fallback.
-
-## `dob_info`: как выставляется в форме
-
-Spider переводит `dob_info` в один из режимов формы:
-
-- `optional = "1"` (полная дата):
-  - заполняется поле `c_birth_date`
-  - значение вводится как `DDMMYYYY` (цифрами, без разделителей)
-- `optional = "3"` (месяц и год):
-  - включается чекбокс "дата рождения указана не полностью"
-  - выбирается radio `radio_birth_date = 1` ("Месяц и год")
-  - заполняется month-picker `c_birth_month_and_year`
-- `optional = "2"` (только год):
-  - включается чекбокс "дата рождения указана не полностью"
-  - выбирается radio `radio_birth_date = 2` ("Только год")
-  - выбирается год в dropdown `c_birth_year`
+ 
+ 
 
 ### Примеры
 
@@ -178,17 +160,13 @@ Spider переводит `dob_info` в один из режимов формы:
 - `dob_info = "2002"` -> режим "Только год", в форме: `2002`
 - `dob_info = "31.01.2002"` -> режим "Полная дата", в форме поле даты: `31012002`
 
-## Валидация и ошибки
-
-- Для полной даты (`optional = "1"`) требуется корректная `dob_info`, иначе будет ошибка `dob_info is required`.
-- Для частичной даты (`optional = "2"` / `optional = "3"`) обязателен год (`by`), иначе будет ошибка `birth year is required for partial date mode`.
-- Если месяц некорректный (не `1..12`) в режиме `MM.YYYY`, будет ошибка `Invalid month for partial DOB`.
+ 
 
 ## Пример ответа
 
 Ниже пример структуры ответа NEWDB для метода `rkl`. Значение `registry_status` определяется из текста результата на экране Госуслуг:
 
-Формат ответа одинаковый для всех вариантов `dob_info` (`MM.YYYY`, `YYYY`, `DD.MM.YYYY`); меняется только значение, переданное в `params.dob_info`.
+ 
 
 - `not_found` — если в заголовке найдено "отсутствует в реестре контролируемых лиц"
 - `found` — если в заголовке найдено "в реестре контролируемых лиц"
@@ -200,9 +178,9 @@ Spider переводит `dob_info` в один из режимов формы:
     "params": {
       "method": "rkl",
       "country": "ru",
-      "lastname": "Зиёдулла",
-      "firstname": "Бегимов",
-      "secondname": "Камолович ",
+      "lastname": "Иванов",
+      "firstname": "Иван",
+      "secondname": "Иванович",
       "dob_info": "01.2002",
       "issue_date": "31.01.2002",
       "id_doc_seria": "FA",
