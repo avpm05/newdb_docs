@@ -14,3 +14,4 @@ meta:
 ## Доступные методы
 
 - [arbitr_legal — арбитражные дела юрлиц](01-arbitr_legal.md)
+- [fns_block — блокировки счетов юрлиц (ФНС)](02-fns_block.md)
