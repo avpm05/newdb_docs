@@ -34,7 +34,7 @@ API разработан для проведения комплексных пр
 ## Навигация по разделам
 
 - [Физические лица](fiz/01-fssp_person.md) — паспорт, арбитраж КАД, ФССП, банкротство, залоги
-- [Иностранные граждане](foreign/01-foreign_vng.md) — ВНЖ, патент, РВП, РНР, RKL, включая новый метод [patent_msk](foreign/07-foreign_patent_msk.md)
+- [Иностранные граждане](foreign/01-foreign_vng.md) — ВНЖ, патент, РВП, РНР, RKL, включая методы [patent_msk](foreign/07-foreign_patent_msk.md) и [patent_mo](foreign/08-foreign_patent_mo.md)
 - [Юридические лица](legal/index.md) — арбитраж КАД по ИНН
 - [Имущество](property/01-rosreestr.md) — Росреестр и залоги по VIN/ID
 
