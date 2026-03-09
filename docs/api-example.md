@@ -77,6 +77,16 @@ POST https://api.newdb.net/v2
 ```
 * Отправить повторно POST запрос с тем же requestId
 
+Или получить результат через отдельный GET-метод по `requestId`:
+
+```http
+GET https://api.newdb.net/v2/data?requestId=b4c61a6b-34cc-430e-bbeb-a6518014bca4&token=<your_token>
+```
+
+Где:
+- `requestId` — идентификатор ранее отправленного запроса
+- `token` — API-токен
+
 **Пример ответа**
 
 ```json
