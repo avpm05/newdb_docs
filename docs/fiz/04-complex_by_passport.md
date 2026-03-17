@@ -15,12 +15,16 @@ meta:
 
 POST `https://api.newdb.net/v2`
 
-Метод выполняет комплексную проверку физического лица по серии и номеру паспорта РФ.  
-Выполняются следующие этапы:
+Метод выполняет комплексную проверку физического лица по серии и номеру паспорта РФ.
+В рамках одного запроса могут выполняться следующие проверки:
 
-- проверка паспорта на действительность по линии МВД (действительный / недействительный / данные не найдены),
-- проверка паспорта и получение ИНН по линии ФНС России,
-- поиск исполнительных производств  ФССП
+- проверка паспорта на действительность по линии МВД (`passport_mvd`),
+- проверка паспорта и получение ИНН по линии ФНС России (`passport_fns`),
+- поиск исполнительных производств в ФССП (`fssp_person`),
+- поиск сведений о залогах и обременениях по физлицу (`pledge_person`),
+- проверка статуса ИП / сведений ЕГРИП (`egrul_ip`).
+
+Состав шагов в `steps` и `results` зависит от доступных идентификаторов и внутренних переходов между источниками. Например, после получения ИНН могут запускаться дополнительные проверки по найденным данным.
 
 ---
 
@@ -65,17 +69,17 @@ X-API-KEY: YOUR_TOKEN
 
 {
   "params": {
-    "seria": "1234",
-    "number": "123456",
+    "seria": "0000",
+    "number": "000000",
     "method": "complex_by_passport",
-    "firstname": "Петр",
-    "secondname": "Петрович",
+    "firstname": "Иван",
+    "secondname": "Иванович",
     "lastname": "Иванов",
-    "dob": "1987-01-08",
+    "dob": "1990-01-01",
     "country": "ru",
     "regioncode": 77
   },
-  "requestId": "869c6cd0-d07c239b-78def834-bd6befec"
+  "requestId": "11111111-2222-3333-4444-555555555555"
 }
 ```
 
@@ -86,53 +90,59 @@ X-API-KEY: YOUR_TOKEN
 ```json
 {
   "params": {
-    "seria": "1234",
-    "number": "123456",
+    "seria": "0000",
+    "number": "000000",
     "method": "complex_by_passport",
-    "firstname": "Петр",
-    "secondname": "Петрович",
+    "firstname": "Иван",
+    "secondname": "Иванович",
     "lastname": "Иванов",
-    "dob": "1987-01-08",
+    "dob": "1990-01-01",
     "country": "ru",
     "regioncode": 77
   },
-  "requestId": "869c6cd0-d07c239b-78def834-bd6befec",
-  "datecreated": "2025-11-28 17:06:59",
+  "requestId": "11111111-2222-3333-4444-555555555555",
+  "datecreated": "2026-03-17 12:00:00",
   "state": "complete",
-  "balance": 9958,
+  "balance": 9999,
   "steps": {
     "fssp_person": {
       "status": "complete",
       "error": null,
-      "requestId": "c8916c2c-349c-4d6e-819c-76603b27fd04"
+      "requestId": "aaaaaaaa-1111-2222-3333-bbbbbbbbbbbb"
     },
     "passport_mvd": {
       "status": "complete",
       "error": null,
-      "requestId": "5d37cf3f-b8be-49e1-b9de-dc9d9269b916"
+      "requestId": "cccccccc-1111-2222-3333-dddddddddddd"
     },
     "passport_fns": {
       "status": "complete",
+      "error": "passport_fns request failed with status 405",
+      "requestId": "eeeeeeee-1111-2222-3333-ffffffffffff"
+    },
+    "pledge_person": {
+      "status": "complete",
       "error": null,
-      "requestId": "d3efeede-4d6a-494e-ade0-99a83cd0220a"
+      "requestId": "12121212-3434-5656-7878-909090909090"
+    },
+    "egrul_ip": {
+      "status": "complete",
+      "error": null,
+      "requestId": "abababab-cdcd-efef-0101-232323232323"
     }
   },
   "results": {
     "passport_fns": {
-      "taskId": "1c1ccaab-9c8a-458c-9fdb-46c2288e01d7",
+      "taskId": "99999999-8888-7777-6666-555555555555",
       "result": {
-        "status": 200,
-        "data": [
-          {
-            "innfiz": "272116001938"
-          }
-        ]
+        "status": 405,
+        "data": []
       },
-      "dateupdated": "2025-11-28 17:07:20"
+      "dateupdated": "2026-03-17 12:00:10"
     },
     "passport_mvd": {
-      "taskId": "d6327b35-22c7-4e2b-b308-48e2ca8eef8a",
-      "dateupdated": "2025-11-28 17:07:36",
+      "taskId": "44444444-5555-6666-7777-888888888888",
+      "dateupdated": "2026-03-17 12:00:12",
       "result": {
         "status": 200,
         "data": [
@@ -143,15 +153,31 @@ X-API-KEY: YOUR_TOKEN
       }
     },
     "fssp_person": {
-      "taskId": "0acb4ac8-abb2-4600-a250-396de8fc6799",
-      "dateupdated": "2025-11-28 17:07:39",
+      "taskId": "10101010-2020-3030-4040-505050505050",
+      "dateupdated": "2026-03-17 12:00:15",
+      "result": {
+        "status": 200,
+        "data": []
+      }
+    },
+    "pledge_person": {
+      "taskId": "61616161-7272-8383-9494-050505050505",
+      "dateupdated": "2026-03-17 12:00:18",
+      "result": {
+        "status": 200,
+        "data": []
+      }
+    },
+    "egrul_ip": {
+      "taskId": "abab1111-cdcd-2222-efef-333344445555",
+      "dateupdated": "2026-03-17 12:00:20",
       "result": {
         "status": 200,
         "data": []
       }
     }
   },
-  "finished_at": "2025-11-28 17:07:42"
+  "finished_at": "2026-03-17 12:00:21"
 }
 ```
 
@@ -164,7 +190,7 @@ X-API-KEY: YOUR_TOKEN
   "tools": [
     {
       "name": "complex_by_passport",
-      "description": "Комплексная проверка человека по серии и номеру паспорта РФ. Выполняет проверки МВД (действительность паспорта), ФНС (ИНН), ФССП (исполнительные производства) и сверку ФИО/даты рождения.",
+      "description": "Комплексная проверка человека по серии и номеру паспорта РФ. Может включать проверки МВД (действительность паспорта), ФНС (ИНН), ФССП (исполнительные производства), залоги и обременения физлица, а также сведения ЕГРИП.",
       "input_schema": {
         "seria": "string — серия паспорта",
         "number": "string — номер паспорта",
@@ -210,6 +236,22 @@ X-API-KEY: YOUR_TOKEN
               "status": "number",
               "data": "array — данные по исполнительным производствам"
             }
+          },
+          "pledge_person": {
+            "taskId": "string",
+            "dateupdated": "string",
+            "result": {
+              "status": "number",
+              "data": "array — данные по залогам и обременениям"
+            }
+          },
+          "egrul_ip": {
+            "taskId": "string",
+            "dateupdated": "string",
+            "result": {
+              "status": "number",
+              "data": "array — сведения по ИП / ЕГРИП"
+            }
           }
         }
       },
@@ -231,7 +273,7 @@ X-API-KEY: YOUR_TOKEN
       "headers_required": ["X-API-KEY"]
     }
   ],
-  "policy": "Если пользователь предоставляет серию, номер паспорта , ФИО, регион проживанивания , дату рождения — вызывай метод complex_by_passport, который возвращает проверки по МВД, ФНС и ФССП."
+  "policy": "Если пользователь предоставляет серию, номер паспорта, ФИО, регион проживания и дату рождения — вызывай метод complex_by_passport. В ответе могут возвращаться проверки по МВД, ФНС, ФССП, залогам и сведениям по ИП."
 }
 ```
 
