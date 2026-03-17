@@ -27,6 +27,7 @@ nav:
       - Комплексная проверка по паспорту: fiz/04-complex_by_passport.md
       - Проверка на банкротство (Федресурс): fiz/05-fedresurs_bankrot.md
       - Налоговая задолженность по ИНН: fiz/08-nalog_debt.md
+      - Статус электронной медкнижки (ЭЛМК): fiz/09-elmk_registry.md
       - Залоги : fiz/06-pledge_person.md
       - Арбитражные дела физлиц (КАД): fiz/07-arbitr_person.md
   - Иностранные граждане:
