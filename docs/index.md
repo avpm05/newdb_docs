@@ -31,12 +31,46 @@ X-API-KEY: <your_token>
 
 API разработан для проведения комплексных проверок юридических и физических лиц. Для получения токена напишите письмо на access@newdb.net.
 
-## Навигация по разделам
+## Реестр методов
 
-- [Физические лица](fiz/01-fssp_person.md) — паспорт, налоговые долги по ИНН, арбитраж КАД, ФССП, банкротство, залоги
-- [Иностранные граждане](foreign/01-foreign_vng.md) — ВНЖ, патент, РВП, РНР, RKL, включая методы [patent_msk](foreign/07-foreign_patent_msk.md) и [patent_mo](foreign/08-foreign_patent_mo.md)
-- [Юридические лица](legal/index.md) — арбитраж КАД по ИНН
-- [Имущество](property/01-rosreestr.md) — Росреестр и залоги по VIN/ID
+### Физические лица
+
+- [fssp_person](fiz/01-fssp_person.md) — проверка исполнительных производств ФССП по ФИО, дате рождения и региону
+- [passport_fns](fiz/02-passport_fns.md) — проверка паспорта и получение ИНН через ФНС
+- [passport_mvd](fiz/03-passport_mvd.md) — проверка паспорта РФ на действительность
+- [complex_by_passport](fiz/04-complex_by_passport.md) — комплексная проверка человека по паспорту
+- [bankrot_person](fiz/05-fedresurs_bankrot.md) — проверка банкротства физлица или ИП через Федресурс
+- [pledge_person](fiz/06-pledge_person.md) — проверка залогов и обременений по физлицу
+- [arbitr_person](fiz/07-arbitr_person.md) — арбитражные дела физлица в КАД
+- [nalog_debt](fiz/08-nalog_debt.md) — налоговая задолженность физлица по ИНН
+- [elmk_registry](fiz/09-elmk_registry.md) — статус электронной медицинской книжки
+- [fns_block_person](fiz/10-fns_block_person.md) — блокировки счетов физлица по данным ФНС
+- [egrul_ip](fiz/11-egrul_ip.md) — сведения ЕГРИП и статус ИП по `innfiz`
+- [terrorist](fiz/12-terrorist.md) — проверка на причастность к терроризму, экстремизму и распространению ОМУ
+
+### Иностранные граждане
+
+- [foreign_vng](foreign/01-foreign_vng.md) — проверка вида на жительство
+- [patent_msk](foreign/02-foreign_patent.md) — проверка патента
+- [foreign_rvp_stamp](foreign/03-foreign_rvp_stamp.md) — проверка РВП по штампу в паспорте
+- [foreign_rvp_blank](foreign/04-foreign_rvp_blank.md) — проверка РВП по бланку
+- [foreign_rnr](foreign/05-foreign_rnr.md) — проверка разрешения на работу
+- [rkl](foreign/06-foreign_rkl.md) — проверка по реестру контролируемых лиц
+- [patent_msk](foreign/07-foreign_patent_msk.md) — патент для Москвы
+- [patent_mo](foreign/08-foreign_patent_mo.md) — патент для Московской области
+
+### Юридические лица
+
+- [arbitr_legal](legal/01-arbitr_legal.md) — арбитражные дела юрлица в КАД
+- [fns_block](legal/02-fns_block.md) — блокировки счетов юрлица по данным ФНС
+- [bankrot_legal](legal/03-bankrot_legal.md) — проверка банкротства юрлица через Федресурс
+- [egrul](legal/04-egrul.md) — сведения ЕГРЮЛ и карточка компании из Прозрачного бизнеса
+
+### Имущество
+
+- [rosreestr](property/01-rosreestr.md) — проверка объекта недвижимости по кадастровому номеру или адресу
+- [pledge_property](property/02-pledge_property.md) — проверка залога и обременений по идентификатору предмета
+- [pledge_vin](property/03-pledge_vin.md) — проверка залога и обременений по VIN
 
 ## Общий формат запроса
 
@@ -60,7 +94,7 @@ API разработан для проведения комплексных пр
 
 ## Разделы документации
 
-Используйте левое меню или блок "Навигация по разделам" выше. На главной странице перечисление методов намеренно не приводится полностью, чтобы избежать расхождений с актуальной структурой документации.
+Используйте левое меню или реестр методов выше для быстрого перехода к нужному методу.
 
 
  
