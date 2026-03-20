@@ -37,7 +37,8 @@ API разработан для проведения комплексных пр
 
 ```http
 GET https://api.newdb.net/v2/balance
-X-API-KEY: <your_token>
+Headers: 
+X-API-KEY: <yGour_token>
 ```
 
 Пример ответа:
