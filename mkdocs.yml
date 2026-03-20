@@ -60,6 +60,9 @@ plugins:
   - search
   - awesome-pages
 
+extra_css:
+  - stylesheets/custom_theme.css
+
 markdown_extensions:
   - admonition
   - pymdownx.details
