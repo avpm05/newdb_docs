@@ -1,4 +1,4 @@
-site_name: NEWDB API Docs
+site_name: Документация по API NewDB.net
 site_description: Документация по REST API NEWDB и метаданные для AI-агентов
 site_url: https://newdb.net/docs
 use_directory_urls: true
@@ -62,6 +62,9 @@ plugins:
 
 extra_css:
   - stylesheets/custom_theme.css
+
+extra_javascript:
+  - javascripts/header-actions.js
 
 markdown_extensions:
   - admonition
