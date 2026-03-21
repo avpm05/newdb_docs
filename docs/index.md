@@ -84,6 +84,7 @@ X-API-KEY: <your_token>
 - [fns_block](legal/02-fns_block.md) — блокировки счетов юрлица по данным ФНС
 - [bankrot_legal](legal/03-bankrot_legal.md) — проверка банкротства юрлица через Федресурс
 - [egrul](legal/04-egrul.md) — сведения ЕГРЮЛ и карточка компании из Прозрачного бизнеса
+- [fssp_legal](legal/05-fssp_legal.md) — исполнительные производства ФССП по ИНН юридического лица
 
 ### Имущество
 

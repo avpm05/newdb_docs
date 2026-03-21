@@ -50,6 +50,7 @@ nav:
       - Блокировка счета ФНС: legal/02-fns_block.md
       - Банкротство юрлица (Федресурс): legal/03-bankrot_legal.md
       - ЕГРЮЛ / Прозрачный бизнес: legal/04-egrul.md
+      - ФССП по ИНН юрлица: legal/05-fssp_legal.md
   - Имущество:
       - Обзор: property/index.md
       - Росреестр: property/01-rosreestr.md
