@@ -47,11 +47,11 @@ X-API-KEY: YOUR_TOKEN
 
 {
   "params": {
-    "inn": "7707332613",
+    "inn": "3906988988",
     "country": "ru",
     "method": "bankrot_legal"
   },
-  "requestId": "a5962f98-2916-4779-b52d-43c123faa812"
+  "requestId": "a5962f99-2916-4779-b52d-43c123faa822"
 }
 ```
 
@@ -60,14 +60,14 @@ X-API-KEY: YOUR_TOKEN
 ```json
 {
   "params": {
-    "inn": "7707332613",
+    "inn": "3906988988",
     "country": "ru",
     "method": "bankrot_legal"
   },
-  "requestId": "a5962f98-2916-4779-b52d-43c123faa812",
-  "datecreated": "2026-03-20 07:09:05",
+  "requestId": "a5962f99-2916-4779-b52d-43c123faa822",
+  "datecreated": "2026-03-21 23:23:12",
   "state": "complete",
-  "balance": 9708,
+  "balance": 9687,
   "tasks": 1,
   "is_repeat": false,
   "results": {
@@ -76,25 +76,67 @@ X-API-KEY: YOUR_TOKEN
         "status": 200,
         "data": [
           {
-            "bankruptcy": [],
+            "bankruptcy": [
+              {
+                "case_number": "А21-11927/2025",
+                "case_url": "https://fedresurs.ru/legalcases/7fbe07fa-5a5c-4f1c-92d4-b79e5eaf259c",
+                "status": "Конкурсное производство",
+                "messages": [
+                  {
+                    "message_info": "22080695 от 21.03.2026",
+                    "url": "https://fedresurs.ru/bankruptmessages/c5b36afc-ede4-45dd-8b37-54f053327255",
+                    "type": "Сообщение о судебном акте"
+                  },
+                  {
+                    "message_info": "22010926 от 16.03.2026",
+                    "url": "https://fedresurs.ru/bankruptmessages/5081cc01-0016-403d-9dc0-b6c51fad05da",
+                    "type": "Сообщение о результатах проведения собрания кредиторов"
+                  },
+                  {
+                    "message_info": "22005113 от 16.03.2026",
+                    "url": "https://fedresurs.ru/bankruptmessages/403f7fc0-a72b-4233-b8e7-7cab05bd82e9",
+                    "type": "Сообщение о наличии или об отсутствии признаков преднамеренного или фиктивного банкротства"
+                  }
+                ]
+              }
+            ],
             "commmon": {
               "type": "company",
-              "name_or_fio": "ООО \"АПЕКС КОНСАЛТ\"",
-              "inn": "7707332613",
+              "name_or_fio": "ООО \"УК \"РЕЗУЛЬТАТ\"",
+              "inn": "3906988988",
               "reg_number_type": "ОГРН",
-              "reg_number": "1157746102535",
-              "activity": "Разработка компьютерного программного обеспечения",
-              "address": "127473, Г.МОСКВА, ПЕР. 1-Й САМОТЁЧНЫЙ, Д. 2, СТР. 2, ПОМЕЩ. 4 ОФ 3",
-              "status": "Действующее",
-              "details_url": "https://fedresurs.ru/companies/97a3146e-dc92-4b7a-ae9e-026fd6999091"
+              "reg_number": "1163926066303",
+              "activity": "Деятельность по управлению финансово-промышленными группами",
+              "address": "236006, КАЛИНИНГРАДСКАЯ ОБЛАСТЬ, Г. КАЛИНИНГРАД, УЛ. ЯЛТИНСКАЯ, Д. 134",
+              "status": "В отношении юридического лица в деле о несостоятельности (банкротстве) введено наблюдение",
+              "details_url": "https://fedresurs.ru/companies/6ba277d4-899f-4ee9-a19f-3e443e2b879a"
             },
             "encumbrances": [],
-            "publications": []
+            "publications": [
+              {
+                "category": "О лице",
+                "number_date": "22080695 от 21.03.2026",
+                "title": "Сообщение о судебном акте. о признании должника банкротом и открытии конкурсного производства",
+                "url": "https://fedresurs.ru/bankruptmessages/c5b36afc-ede4-45dd-8b37-54f053327255"
+              },
+              {
+                "category": "О лице",
+                "number_date": "22010926 от 16.03.2026",
+                "title": "Сообщение о результатах проведения собрания кредиторов",
+                "url": "https://fedresurs.ru/bankruptmessages/5081cc01-0016-403d-9dc0-b6c51fad05da"
+              },
+              {
+                "category": "О лице",
+                "number_date": "22005113 от 16.03.2026",
+                "title": "Сообщение о наличии или об отсутствии признаков преднамеренного или фиктивного банкротства",
+                "url": "https://fedresurs.ru/bankruptmessages/403f7fc0-a72b-4233-b8e7-7cab05bd82e9"
+              }
+            ]
           }
         ]
       },
-      "taskId": "d51e5882-f1d3-4d24-a7da-74547dfcaebb",
-      "dateupdated": "2026-03-20 07:09:48"
+      "taskId": "2232ad0e-5156-4fe8-b610-91c545c2d907",
+      "dateupdated": "2026-03-21 23:23:38"
     }
   }
 }
@@ -108,6 +150,62 @@ X-API-KEY: YOUR_TOKEN
 | `commmon` | Карточка компании из источника |
 | `encumbrances` | Обременения, если они найдены |
 | `publications` | Публикации по компании в ЕФРСБ |
+
+## Поля `bankruptcy[]`
+
+| Поле | Описание |
+|------|----------|
+| `case_number` | Номер дела о банкротстве |
+| `case_url` | Ссылка на карточку дела или подборку материалов в источнике |
+| `status` | Текущая стадия процедуры банкротства по делу |
+| `messages` | Список связанных сообщений по конкретному делу |
+
+## Поля `bankruptcy[].messages[]`
+
+| Поле | Описание |
+|------|----------|
+| `message_info` | Номер и дата сообщения |
+| `url` | Ссылка на публикацию в Федресурсе |
+| `type` | Тип сообщения |
+
+## Поля `commmon`
+
+| Поле | Описание |
+|------|----------|
+| `type` | Тип субъекта. Для юрлица обычно `company` |
+| `name_or_fio` | Наименование юридического лица |
+| `inn` | ИНН компании |
+| `reg_number_type` | Тип регистрационного номера, например `ОГРН` |
+| `reg_number` | Регистрационный номер компании |
+| `activity` | Основной вид деятельности |
+| `address` | Адрес компании |
+| `status` | Статус компании или формулировка статуса банкротной процедуры |
+| `details_url` | Ссылка на карточку компании в Федресурсе |
+
+## Поля `publications[]`
+
+| Поле | Описание |
+|------|----------|
+| `category` | Категория публикации |
+| `number_date` | Номер и дата публикации |
+| `title` | Заголовок публикации |
+| `url` | Ссылка на публикацию |
+
+## Пример ответа (данные не найдены)
+
+```json
+{
+  "state": "complete",
+  "results": {
+    "bankrot_legal": {
+      "result": {
+        "status": 200,
+        "data": []
+      }
+    }
+  }
+}
+```
 
 ## x-ai (метаданные для AI)
 
@@ -132,7 +230,44 @@ X-API-KEY: YOUR_TOKEN
             "dateupdated": "string",
             "result": {
               "status": "number",
-              "data": "array — карточки компаний и сведения о банкротстве"
+              "data": [
+                {
+                  "bankruptcy": [
+                    {
+                      "case_number": "string — номер дела",
+                      "case_url": "string — ссылка на дело",
+                      "status": "string — стадия процедуры",
+                      "messages": [
+                        {
+                          "message_info": "string — номер и дата сообщения",
+                          "url": "string — ссылка на публикацию",
+                          "type": "string — тип сообщения"
+                        }
+                      ]
+                    }
+                  ],
+                  "commmon": {
+                    "type": "string — тип субъекта",
+                    "name_or_fio": "string — наименование компании",
+                    "inn": "string — ИНН",
+                    "reg_number_type": "string — тип регистрационного номера",
+                    "reg_number": "string — регистрационный номер",
+                    "activity": "string — основной вид деятельности",
+                    "address": "string — адрес",
+                    "status": "string — текущий статус",
+                    "details_url": "string — ссылка на карточку"
+                  },
+                  "encumbrances": "array — найденные обременения, если есть",
+                  "publications": [
+                    {
+                      "category": "string — категория публикации",
+                      "number_date": "string — номер и дата",
+                      "title": "string — заголовок публикации",
+                      "url": "string — ссылка на публикацию"
+                    }
+                  ]
+                }
+              ]
             }
           }
         }
