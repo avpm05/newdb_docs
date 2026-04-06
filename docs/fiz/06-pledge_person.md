@@ -53,7 +53,7 @@ X-API-KEY: YOUR_TOKEN
     "lastname": "Петров",
     "secondname": "Андреевич",
     "country": "ru",
-    "datebirth": "1985-05-10",
+    "dob": "1985-05-10",
     "method": "pledge_person"
   },
   "requestId": "a5962f88-2916-4779-b59d-43c023faa937"
@@ -69,7 +69,7 @@ X-API-KEY: YOUR_TOKEN
     "lastname": "Петров",
     "secondname": "Андреевич",
     "country": "ru",
-    "datebirth": "1985-05-10",
+    "dob": "1985-05-10",
     "method": "pledge_person",
     "newdb_qid": "EOgIIM29hqGwMygC"
   },
