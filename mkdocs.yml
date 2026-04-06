@@ -56,6 +56,7 @@ nav:
       - Росреестр: property/01-rosreestr.md
       - Залог по ID: property/02-pledge_property.md
       - Залог по VIN: property/03-pledge_vin.md
+      - Геоданные по кадастровому номеру: property/04-nspd_cadastr.md
 
 plugins:
   - search
