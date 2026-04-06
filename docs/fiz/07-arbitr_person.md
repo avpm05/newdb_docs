@@ -487,7 +487,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Поиск арбитражных дел физического лица",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["innfiz", "method", "country"],
   "returns": ["state", "results.arbitr_person.result.status", "results.arbitr_person.result.data"]
 }
 ```

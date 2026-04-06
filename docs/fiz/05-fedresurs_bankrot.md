@@ -193,7 +193,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка банкротства физического лица по данным Федресурса",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["innfiz", "method", "country"],
   "returns": ["state", "results.bankrot_person.result.status", "results.bankrot_person.result.data"]
 }
 ```

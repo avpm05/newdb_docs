@@ -214,7 +214,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка исполнительных производств юридического лица по ФССП",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["inn", "method", "country"],
   "returns": ["state", "results.fssp_legal.result.status", "results.fssp_legal.result.data"]
 }
 ```

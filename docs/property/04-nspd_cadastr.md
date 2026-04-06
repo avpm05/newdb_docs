@@ -274,7 +274,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Получение геоданных и характеристик объекта недвижимости по кадастровому номеру",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["cad_num", "method", "country"],
   "returns": ["state", "results.nspd_cadastr.result.status", "results.nspd_cadastr.result.data[].items[].geo"]
 }
 ```

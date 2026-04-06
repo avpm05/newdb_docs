@@ -322,7 +322,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Получение сведений ЕГРЮЛ и данных Прозрачного бизнеса",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["inn", "method", "country"],
   "returns": ["state", "results.egrul.result.status", "results.egrul.result.data[].search", "results.egrul.result.data[].company"]
 }
 ```

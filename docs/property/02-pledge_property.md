@@ -225,7 +225,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка залога и обременений по идентификатору имущества",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["propertyid", "method", "country"],
   "returns": ["state", "results.pledge_property.result.status", "results.pledge_property.result.data"]
 }
 ```

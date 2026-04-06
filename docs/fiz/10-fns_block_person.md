@@ -161,7 +161,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка блокировки счета физического лица по данным ФНС",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["innfiz", "method", "country"],
   "returns": ["state", "results.fns_block_person.result.status", "results.fns_block_person.result.data"]
 }
 ```

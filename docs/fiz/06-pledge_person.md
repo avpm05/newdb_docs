@@ -259,7 +259,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка залогов и обременений по данным физического лица",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["firstname", "lastname", "method", "country"],
   "returns": ["state", "results.pledge_person.result.status", "results.pledge_person.result.data"]
 }
 ```

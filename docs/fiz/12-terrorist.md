@@ -153,7 +153,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка физического лица по перечням терроризма и ОМУ",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["firstname", "lastname", "secondname", "dob", "method", "country"],
   "returns": ["state", "results.terrorist.result.status", "results.terrorist.result.data"]
 }
 ```

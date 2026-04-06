@@ -243,7 +243,7 @@ params_raw = json.dumps({
   "intent": "Проверка наличия в реестре контролируемых лиц",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["firstname", "lastname", "dob_info", "issue_date", "id_doc_seria", "id_doc_number", "method", "country"],
   "returns": ["state", "results.rkl.result.status", "results.rkl.result.data"]
 }
 ```

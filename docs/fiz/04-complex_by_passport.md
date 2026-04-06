@@ -201,7 +201,7 @@ X-API-KEY: YOUR_TOKEN
 ```
 
 ## AI Summary
-
+ 
 <details>
 <summary>Компактные метаданные для AI и агентных систем</summary>
 
@@ -211,7 +211,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Комплексная проверка физического лица по паспортным данным",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["firstname", "lastname", "secondname", "dob", "seria", "number", "method", "country"],
   "returns": ["state", "results.complex_by_passport.result.status", "results.complex_by_passport.result.data"]
 }
 ```

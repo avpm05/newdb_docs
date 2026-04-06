@@ -201,7 +201,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка блокировки счета юридического лица по ФНС",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["inn", "method", "country"],
   "returns": ["state", "results.fns_block.result.status", "results.fns_block.result.data"]
 }
 ```

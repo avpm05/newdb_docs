@@ -160,7 +160,7 @@ X-API-KEY: YOUR_TOKEN
   "intent": "Проверка залога и обременений по VIN транспортного средства",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["method", "country"],
+  "required_fields": ["vin", "method", "country"],
   "returns": ["state", "results.pledge_vin.result.status", "results.pledge_vin.result.data"]
 }
 ```
