@@ -17,6 +17,25 @@ POST `https://api.newdb.net/v2`
 
 Метод выполняет проверку статуса патента иностранного гражданина в Москве.
 
+**Раздел:** [Иностранные граждане](index.md)
+
+## Связанные страницы
+
+- [Обзор раздела иностранные граждане](index.md)
+- [foreign_vng — Вид на жительство (ВНЖ)](01-foreign_vng.md)
+- [foreign_rvp_stamp — РВП (штамп в паспорте)](03-foreign_rvp_stamp.md)
+- [foreign_rvp_blank — РВП (бланк)](04-foreign_rvp_blank.md)
+
+## Когда использовать
+
+Используйте метод, когда нужно проверить статус документа или разрешительного основания иностранного гражданина.
+
+## Типовые кейсы
+
+- Проверка ВНЖ, патента, РВП или разрешения на работу перед оформлением
+- Контроль миграционных документов в HR или compliance-процессе
+- Подтверждение статуса документа по данным анкеты и реквизитам
+
 ## Заголовки
 ```
 Content-Type: application/json
@@ -134,81 +153,22 @@ X-API-KEY: <your_token>
 
 Поле `captcha_failed` в ответе не используется.
 
-## x-ai (метаданные для AI)
+## AI Summary
+
+<details>
+<summary>Компактные метаданные для AI и агентных систем</summary>
+
 ```json
 {
-  "tools": [
-    {
-      "name": "patent_msk",
-      "description": "Проверка статуса патента иностранного гражданина в Москве.",
-      "input_schema": {
-        "method": "string (patent_msk)",
-        "firstname": "string",
-        "lastname": "string",
-        "secondname": "string",
-        "id_doc_seria": "string",
-        "id_doc_number": "string",
-        "citizenship": "string (optional)",
-        "country": "string (ru)",
-        "requestId": "string (optional)"
-      },
-      "output_schema": {
-        "requestId": "string",
-        "datecreated": "string (YYYY-MM-DD HH:MM:SS)",
-        "state": "string (complete|processing|error)",
-        "results": {
-          "patent_msk": {
-            "taskId": "string",
-            "dateupdated": "string (YYYY-MM-DD HH:MM:SS)",
-            "result": {
-              "status": "number (HTTP status)",
-              "data": [
-                {
-                  "citizenship": "string",
-                  "message": "string",
-                  "status": "string (expired|not_found|valid)"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "example": {
-        "request": {
-          "params": {
-            "method": "patent_msk",
-            "firstname": "Алишер",
-            "lastname": "Рахимов",
-            "secondname": "Саидович",
-            "id_doc_seria": "FA",
-            "id_doc_number": "2001901",
-            "citizenship": "Узбекистан",
-            "country": "ru"
-          },
-          "requestId": "b4c66a6b-45cc-430e-bbeb-a6528014bca4"
-        },
-        "response": {
-          "requestId": "b4c66a6b-45cc-430e-bbeb-a6528014bca4",
-          "state": "complete",
-          "results": {
-            "patent_msk": {
-              "result": {
-                "status": 200,
-                "data": [
-                  {
-                    "citizenship": "Узбекистан",
-                    "message": "Срок действия Вашего патента истек 26.08.2025 Для работы в Москве необходимо оформить новый патент.",
-                    "status": "expired"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      },
-      "headers_required": ["X-API-KEY"]
-    }
-  ],
-  "policy": "Если пользователь просит проверить патент в Москве — используйте метод patent_msk и верните статус по документу."
+  "method": "patent_msk",
+  "intent": "Проверка патента иностранного гражданина",
+  "endpoint": "POST https://api.newdb.net/v2",
+  "required_headers": ["X-API-KEY"],
+  "required_fields": ["method", "firstname", "lastname", "secondname", "id_doc_seria", "id_doc_number", "citizenship", "country", "requestId"],
+  "returns": ["state", "results.patent_msk.result.status", "results.patent_msk.result.data"]
 }
 ```
+
+</details>
+
+

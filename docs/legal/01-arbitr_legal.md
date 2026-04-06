@@ -19,6 +19,25 @@ POST `https://api.newdb.net/v2`
 
 ---
 
+**Раздел:** [Юридические лица](index.md)
+
+## Связанные страницы
+
+- [Обзор раздела юридические лица](index.md)
+- [fns_block — Проверка блокировок счетов юрлица (ФНС)](02-fns_block.md)
+- [bankrot_legal — Проверка на банкротство юрлица (Федресурс)](03-bankrot_legal.md)
+- [egrul — Сведения ЕГРЮЛ / Прозрачный бизнес](04-egrul.md)
+
+## Когда использовать
+
+Используйте метод, когда нужно получить сведения о юридическом лице, его рисках, долгах, блокировках или судебной активности.
+
+## Типовые кейсы
+
+- Проверка контрагента перед сделкой или оплатой
+- Автоматическое обогащение карточки компании по ИНН
+- Выявление признаков банкротства, блокировок, исполнительных производств или арбитража
+
 ## Заголовки
 
 Content-Type: application/json  
@@ -307,3 +326,23 @@ X-API-KEY: YOUR_TOKEN
 ```
 
 ---
+
+## AI Summary
+
+<details>
+<summary>Компактные метаданные для AI и агентных систем</summary>
+
+```json
+{
+  "method": "arbitr_legal",
+  "intent": "Поиск арбитражных дел юридического лица",
+  "endpoint": "POST https://api.newdb.net/v2",
+  "required_headers": ["X-API-KEY"],
+  "required_fields": ["method", "country"],
+  "returns": ["state", "results.arbitr_legal.result.status", "results.arbitr_legal.result.data"]
+}
+```
+
+</details>
+
+

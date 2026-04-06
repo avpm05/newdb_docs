@@ -23,6 +23,25 @@ POST `https://api.newdb.net/v2`
 - адрес, площадь, этажность, год постройки
 - назначение, вид права и кадастровую стоимость
 
+**Раздел:** [Имущество](index.md)
+
+## Связанные страницы
+
+- [Обзор раздела имущество](index.md)
+- [pledge_vin — Проверка залога и обременений по VIN (ФНП + Федресурс)](03-pledge_vin.md)
+- [pledge_property — Проверка залога и обременений по ID (ФНП + Федресурс)](02-pledge_property.md)
+- [rosreestr — Проверка объекта недвижимости (Росреестр)](01-rosreestr.md)
+
+## Когда использовать
+
+Используйте метод, когда нужно проверить объект недвижимости, транспорт или сведения о залоге и обременениях.
+
+## Типовые кейсы
+
+- Проверка объекта перед сделкой или выдачей займа
+- Получение сведений о залоге, кадастровых данных или геометрии объекта
+- Обогащение карточки имущества структурированными данными из внешнего реестра
+
 ## Заголовки
 
 Content-Type: application/json
@@ -243,3 +262,23 @@ X-API-KEY: YOUR_TOKEN
 | `results.nspd_cadastr.result.data[].items[].geo.points` | Точки контура объекта в координатах WGS84. |
 | `results.nspd_cadastr.result.data[].items[].geo.geometry` | Геометрия объекта в формате `Polygon` с координатами WGS84. |
 | `results.nspd_cadastr.result.data[].items[].geo.source_geometry` | Исходная геометрия объекта в системе координат источника. |
+
+## AI Summary
+
+<details>
+<summary>Компактные метаданные для AI и агентных систем</summary>
+
+```json
+{
+  "method": "nspd_cadastr",
+  "intent": "Получение геоданных и характеристик объекта недвижимости по кадастровому номеру",
+  "endpoint": "POST https://api.newdb.net/v2",
+  "required_headers": ["X-API-KEY"],
+  "required_fields": ["method", "country"],
+  "returns": ["state", "results.nspd_cadastr.result.status", "results.nspd_cadastr.result.data[].items[].geo"]
+}
+```
+
+</details>
+
+

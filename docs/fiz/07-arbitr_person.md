@@ -19,6 +19,25 @@ POST `https://api.newdb.net/v2`
 
 ---
 
+**Раздел:** [Физические лица](index.md)
+
+## Связанные страницы
+
+- [Обзор раздела физические лица](index.md)
+- [pledge_person — Проверка залогов и обременений (ФНП + Федресурс)](06-pledge_person.md)
+- [nalog_debt — Проверка налоговой задолженности по ИНН](08-nalog_debt.md)
+- [bankrot_person — Проверка на банкротство физлица (Федресурс)](05-fedresurs_bankrot.md)
+
+## Когда использовать
+
+Используйте метод, когда нужно проверить физлицо, документ или связанный с ним государственный реестр по структурированным данным.
+
+## Типовые кейсы
+
+- Проверка анкеты клиента перед onboarding или выдачей услуги
+- Автоматическая верификация паспорта, ИНН, задолженностей или ограничений
+- Обогащение внутренней карточки физлица данными из внешнего источника
+
 ## Заголовки
 
 Content-Type: application/json  
@@ -456,3 +475,23 @@ X-API-KEY: YOUR_TOKEN
 ```
 
 ---
+
+## AI Summary
+
+<details>
+<summary>Компактные метаданные для AI и агентных систем</summary>
+
+```json
+{
+  "method": "arbitr_person",
+  "intent": "Поиск арбитражных дел физического лица",
+  "endpoint": "POST https://api.newdb.net/v2",
+  "required_headers": ["X-API-KEY"],
+  "required_fields": ["method", "country"],
+  "returns": ["state", "results.arbitr_person.result.status", "results.arbitr_person.result.data"]
+}
+```
+
+</details>
+
+
