@@ -70,7 +70,7 @@ X-API-KEY: <your_token>
 ### Иностранные граждане
 
 - [foreign_vng](foreign/01-foreign_vng.md) — проверка вида на жительство
-- [patent_msk](foreign/02-foreign_patent.md) — проверка патента
+- [foreign_patent](foreign/02-foreign_patent.md) — проверка патента
 - [foreign_rvp_stamp](foreign/03-foreign_rvp_stamp.md) — проверка РВП по штампу в паспорте
 - [foreign_rvp_blank](foreign/04-foreign_rvp_blank.md) — проверка РВП по бланку
 - [foreign_rnr](foreign/05-foreign_rnr.md) — проверка разрешения на работу
