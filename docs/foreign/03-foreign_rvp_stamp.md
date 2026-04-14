@@ -22,7 +22,7 @@ POST `https://api.newdb.net/v2`
 ## Связанные страницы
 
 - [Обзор раздела иностранные граждане](index.md)
-- [patent_msk — Патент (Москва)](02-foreign_patent.md)
+- [foreign_patent — Патент](02-foreign_patent.md)
 - [foreign_rvp_blank — РВП (бланк)](04-foreign_rvp_blank.md)
 - [foreign_vng — Вид на жительство (ВНЖ)](01-foreign_vng.md)
 
@@ -141,5 +141,4 @@ X-API-KEY: YOUR_TOKEN
 ```
 
 </details>
-
 

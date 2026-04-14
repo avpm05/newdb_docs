@@ -24,7 +24,7 @@ POST `https://api.newdb.net/v2`
 - [Обзор раздела иностранные граждане](index.md)
 - [foreign_rvp_stamp — РВП (штамп в паспорте)](03-foreign_rvp_stamp.md)
 - [foreign_rnr — Разрешение на работу (РНР)](05-foreign_rnr.md)
-- [patent_msk — Патент (Москва)](02-foreign_patent.md)
+- [foreign_patent — Патент](02-foreign_patent.md)
 
 ## Когда использовать
 
@@ -150,5 +150,4 @@ X-API-KEY: YOUR_TOKEN
 ```
 
 </details>
-
 
