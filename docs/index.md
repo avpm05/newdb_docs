@@ -86,6 +86,11 @@ X-API-KEY: <your_token>
 - [egrul](legal/04-egrul.md) — сведения ЕГРЮЛ и карточка компании из Прозрачного бизнеса
 - [fssp_legal](legal/05-fssp_legal.md) — исполнительные производства ФССП по ИНН юридического лица
 
+### ГАС Правосудие
+
+- [pravo_cases_details](gas/01-pravo_cases_details.md) — получение деталей судебного дела по `case_id` и `newdb_qid`
+- [pravo_search](gas/02-pravo_search.md) — поиск судебных дел по участникам, номеру, судье, категории и тексту актов
+
 ### Имущество
 
 - [rosreestr](property/01-rosreestr.md) — проверка объекта недвижимости по кадастровому номеру или адресу

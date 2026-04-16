@@ -51,6 +51,10 @@ nav:
       - Банкротство юрлица (Федресурс): legal/03-bankrot_legal.md
       - ЕГРЮЛ / Прозрачный бизнес: legal/04-egrul.md
       - ФССП по ИНН юрлица: legal/05-fssp_legal.md
+  - ГАС Правосудие:
+      - Обзор: gas/index.md
+      - Детали судебного дела по NewdbID: gas/01-pravo_cases_details.md
+      - Поиск судебных дел: gas/02-pravo_search.md
   - Имущество:
       - Обзор: property/index.md
       - Росреестр: property/01-rosreestr.md
