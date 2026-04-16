@@ -1,6 +1,86 @@
-site_name: NEWDB — Документация по API
+site_name: Документация по API NewDB.net
+site_description: Документация по REST API NEWDB и метаданные для AI-агентов
+site_url: https://newdb.net/docs
+use_directory_urls: true
+
 theme:
   name: material
-  custom_dir: theme
+  language: ru
+  features:
+    - navigation.top
+    - navigation.sections
+    - navigation.tracking
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+
 nav:
   - Главная: index.md
+  - Пример вызова API: api-example.md
+  - Физические лица:
+      - Обзор: fiz/index.md
+      - Проверка ФЛ (ФССП): fiz/01-fssp_person.md
+      - Проверка паспорта и ИНН через ФНС: fiz/02-passport_fns.md
+      - Проверка паспорта РФ на действительность: fiz/03-passport_mvd.md
+      - Комплексная проверка по паспорту: fiz/04-complex_by_passport.md
+      - Банкротство физлица (Федресурс): fiz/05-fedresurs_bankrot.md
+      - Блокировка счета физлица (ФНС): fiz/10-fns_block_person.md
+      - ЕГРИП / статус ИП: fiz/11-egrul_ip.md
+      - Терроризм / ОМУ: fiz/12-terrorist.md
+      - Налоговая задолженность по ИНН: fiz/08-nalog_debt.md
+      - Статус электронной медкнижки (ЭЛМК): fiz/09-elmk_registry.md
+      - Залоги : fiz/06-pledge_person.md
+      - Арбитражные дела физлиц (КАД): fiz/07-arbitr_person.md
+  - Иностранные граждане:
+      - Обзор: foreign/index.md
+      - Вид на жительство (ВНЖ): foreign/01-foreign_vng.md
+      - Патент: foreign/02-foreign_patent.md
+      - Патент (Москва): foreign/07-foreign_patent_msk.md
+      - Патент (Московская область): foreign/08-foreign_patent_mo.md
+      - РВП (штамп): foreign/03-foreign_rvp_stamp.md
+      - РВП (бланк): foreign/04-foreign_rvp_blank.md
+      - Разрешение на работу: foreign/05-foreign_rnr.md
+      - Реестр контролируемых лиц (RKL): foreign/06-foreign_rkl.md
+
+  - Юридические лица:
+      - Обзор: legal/index.md
+      - Арбитражные дела юрлиц (КАД): legal/01-arbitr_legal.md
+      - Блокировка счета ФНС: legal/02-fns_block.md
+      - Банкротство юрлица (Федресурс): legal/03-bankrot_legal.md
+      - ЕГРЮЛ / Прозрачный бизнес: legal/04-egrul.md
+      - ФССП по ИНН юрлица: legal/05-fssp_legal.md
+  - ГАС Правосудие:
+      - Обзор: gas/index.md
+      - Детали судебного дела по NewdbID: gas/01-pravo_cases_details.md
+      - Поиск судебных дел: gas/02-pravo_search.md
+  - Имущество:
+      - Обзор: property/index.md
+      - Росреестр: property/01-rosreestr.md
+      - Залог по ID: property/02-pledge_property.md
+      - Залог по VIN: property/03-pledge_vin.md
+      - Геоданные по кадастровому номеру: property/04-nspd_cadastr.md
+
+plugins:
+  - search
+  - awesome-pages
+
+extra_css:
+  - stylesheets/custom_theme.css
+
+extra_javascript:
+  - javascripts/header-actions.js
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji
+  - toc:
+      permalink: true
+
+extra:
+  api_base_url: https://api.newdb.net/v2
+  base_path: /docs/
