@@ -61,6 +61,7 @@ nav:
       - Залог по ID: property/02-pledge_property.md
       - Залог по VIN: property/03-pledge_vin.md
       - Геоданные по кадастровому номеру: property/04-nspd_cadastr.md
+      - Оценка стоимости недвижимости: property/05-realty_price.md
 
 plugins:
   - search

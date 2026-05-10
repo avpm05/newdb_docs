@@ -96,6 +96,8 @@ X-API-KEY: <your_token>
 - [rosreestr](property/01-rosreestr.md) — проверка объекта недвижимости по кадастровому номеру или адресу
 - [pledge_property](property/02-pledge_property.md) — проверка залога и обременений по идентификатору предмета
 - [pledge_vin](property/03-pledge_vin.md) — проверка залога и обременений по VIN
+- [nspd_cadastr](property/04-nspd_cadastr.md) — получение геоданных и характеристик объекта по кадастровому номеру
+- [realty_price](property/05-realty_price.md) — оценка стоимости недвижимости для покупки или аренды
 
 ## Общий формат запроса
 
