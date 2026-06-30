@@ -55,6 +55,7 @@ nav:
       - Обзор: gas/index.md
       - Детали судебного дела по NewdbID: gas/01-pravo_cases_details.md
       - Поиск судебных дел: gas/02-pravo_search.md
+      - Поиск по текстам актов: gas/03-act_text_search.md
   - Имущество:
       - Обзор: property/index.md
       - Росреестр: property/01-rosreestr.md

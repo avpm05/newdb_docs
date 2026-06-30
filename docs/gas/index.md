@@ -18,4 +18,5 @@ meta:
 ## Доступные методы
 
 - [pravo_cases_details](01-pravo_cases_details.md) — детали судебного дела по `case_id` и `newdb_qid`
-- [pravo_search](02-pravo_search.md) — поиск судебных дел по карточке, участникам и тексту актов
+- [pravo_search](02-pravo_search.md) — поиск судебных дел по параметру `query`
+- [act_text_search](03-act_text_search.md) — поиск судебных дел по текстам актов
