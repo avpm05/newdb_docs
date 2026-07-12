@@ -52,7 +52,6 @@ X-API-KEY: <your_token>
 ```json
 {
   "requestId": "optional-string",
-  "taskId": "optional-string",
   "params": {
     "method": "nspd_cadastr",
     "cad_num": "50:20:0020402:2230",
@@ -280,5 +279,4 @@ X-API-KEY: YOUR_TOKEN
 ```
 
 </details>
-
 

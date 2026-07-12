@@ -50,7 +50,6 @@ X-API-KEY: <your_token>
 {
   "params": {
     "case_id": "string | number",
-    "newdb_qid": "string",
     "country": "ru",
     "method": "pravo_cases_details"
   },

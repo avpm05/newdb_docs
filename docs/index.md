@@ -21,6 +21,10 @@ meta:
 https://api.newdb.net/v2
 ```
 
+## Swagger UI
+
+Интерактивная OpenAPI-спецификация доступна по адресу [https://newdb.net/swagger/](https://newdb.net/swagger/). В Swagger можно посмотреть схемы запросов и ответов, а также выполнить тестовый запрос к `https://api.newdb.net`.
+
 ## Аутентификация
 
 Передавайте токен в заголовке:
