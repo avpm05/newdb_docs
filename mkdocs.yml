@@ -51,6 +51,7 @@ nav:
       - Банкротство юрлица (Федресурс): legal/03-bankrot_legal.md
       - ЕГРЮЛ / Прозрачный бизнес: legal/04-egrul.md
       - ФССП по ИНН юрлица: legal/05-fssp_legal.md
+      - Залоги юрлица: legal/07-pledge_legal.md
       - Комплексная проверка компании по ИНН: legal/06-complex_by_inn.md
   - ГАС Правосудие:
       - Обзор: gas/index.md

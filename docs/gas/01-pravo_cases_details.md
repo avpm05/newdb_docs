@@ -1,17 +1,17 @@
 ---
-title: "pravo_cases_details — детали судебного дела по NewdbID"
-description: "Метод NEWDB pravo_cases_details возвращает карточку судебного дела, события, поля, участников и документы по case_id и newdb_qid."
+title: "pravo_cases_details — детали судебного дела по case_id"
+description: "Метод NEWDB pravo_cases_details возвращает карточку судебного дела, события, поля, участников и документы по case_id."
 canonical_url: https://newdb.net/docs/gas/01-pravo_cases_details/
 meta:
   - name: keywords
-    content: "NEWDB API, pravo_cases_details, детали дела, case_id, newdb_qid, ГАС Правосудие, суд"
+    content: "NEWDB API, pravo_cases_details, детали дела, case_id, ГАС Правосудие, суд"
   - property: og:title
-    content: "Детали судебного дела по NewdbID — метод pravo_cases_details"
+    content: "Детали судебного дела по case_id — метод pravo_cases_details"
   - property: og:description
-    content: "Получите карточку дела, события, участников, поля и ссылки на документы по case_id и newdb_qid через API NEWDB."
+    content: "Получите карточку дела, события, участников, поля и ссылки на документы по case_id через API NEWDB."
 ---
 
-# pravo_cases_details — Получение деталей дела по NewdbID
+# pravo_cases_details — Получение деталей дела по case_id
 
 POST `https://api.newdb.net/v2`
 
@@ -62,7 +62,6 @@ X-API-KEY: <your_token>
 | Поле | Обязательное | Описание |
 |------|--------------|----------|
 | `case_id` | Да | Внутренний идентификатор дела NEWDB, полученный из результата поиска |
-| `newdb_qid` | Да | Идентификатор поисковой выдачи NEWDB, в контексте которой найдено дело |
 | `country` | Да | Код страны. Для метода используется `ru` |
 | `method` | Да | Название метода: `pravo_cases_details` |
 
@@ -80,8 +79,7 @@ X-API-KEY: YOUR_TOKEN
   "params": {
     "case_id": "11051155",
     "country": "ru",
-    "method": "pravo_cases_details",
-    "newdb_qid": "EMQrINOuwr7ZMygA"
+    "method": "pravo_cases_details"
   },
   "requestId": "a5972f88-2926-4179-b69d-43c123faa912"
 }
@@ -96,8 +94,7 @@ X-API-KEY: YOUR_TOKEN
   "params": {
     "case_id": "11051155",
     "country": "ru",
-    "method": "pravo_cases_details",
-    "newdb_qid": "EMQrINOuwr7ZMygA"
+    "method": "pravo_cases_details"
   },
   "requestId": "a5972f88-2926-4179-b69d-43c123faa912",
   "datecreated": "2026-04-16 22:42:00",
@@ -358,10 +355,10 @@ X-API-KEY: YOUR_TOKEN
 ```json
 {
   "method": "pravo_cases_details",
-  "intent": "Получение детальной карточки судебного дела по case_id и newdb_qid",
+  "intent": "Получение детальной карточки судебного дела по case_id",
   "endpoint": "POST https://api.newdb.net/v2",
   "required_headers": ["X-API-KEY"],
-  "required_fields": ["case_id", "newdb_qid", "country", "method"],
+  "required_fields": ["case_id", "country", "method"],
   "returns": [
     "state",
     "results.pravo_cases_details.taskId",

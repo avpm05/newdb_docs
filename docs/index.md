@@ -89,10 +89,11 @@ X-API-KEY: <your_token>
 - [bankrot_legal](legal/03-bankrot_legal.md) — проверка банкротства юрлица через Федресурс
 - [egrul](legal/04-egrul.md) — сведения ЕГРЮЛ и карточка компании из Прозрачного бизнеса
 - [fssp_legal](legal/05-fssp_legal.md) — исполнительные производства ФССП по ИНН юридического лица
+- [pledge_legal](legal/07-pledge_legal.md) — залоги, лизинг и обременения юрлица по ИНН
 
 ### ГАС Правосудие
 
-- [pravo_cases_details](gas/01-pravo_cases_details.md) — получение деталей судебного дела по `case_id` и `newdb_qid`
+- [pravo_cases_details](gas/01-pravo_cases_details.md) — получение деталей судебного дела по `case_id`
 - [pravo_search](gas/02-pravo_search.md) — поиск судебных дел по участникам, номеру, судье, категории и тексту актов
 
 ### Имущество
@@ -121,7 +122,9 @@ X-API-KEY: <your_token>
 | **params.country**  | Да           | Код страны (2 буквы) — ISO 3166-1 alpha-2                                                              |
 | **params.method**   | Да           | Метод API                                                                                              |
 | **requestId**       | Нет          | UUIDv4 идентификатор запроса. При повторном использовании API вернёт старый результат без нового запроса |
-| **webhook**         | Нет          | URL для уведомлений об обновлениях по запросу                                                          |
+| **webhook**         | Нет          | HTTPS URL, на который NEWDB отправит POST-уведомление при обновлении состояния запроса                  |
+
+Подробная логика синхронного вызова, polling по `requestId` и работы с `webhook` описана в разделе [Примеры вызова API](api-example.md).
 
 ## Разделы документации
 

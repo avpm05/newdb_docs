@@ -100,7 +100,6 @@ paths:
                     number: '649286'
                     seriapass: 0806
                     numberpass: '649286'
-                    newdb_qid: EL9bIOj32ODtMygD
                   requestId: ade58bc1-2830-59ec-9933-15e0b2ad6947
               passport_mvd:
                 summary: passport_mvd — Проверка паспорта РФ на действительность
@@ -792,9 +791,6 @@ components:
             numberpass:
               type: string
               example: '649286'
-            newdb_qid:
-              type: string
-              example: EL9bIOj32ODtMygD
           required:
           - seria
           - number
@@ -828,7 +824,6 @@ components:
           number: '649286'
           seriapass: 0806
           numberpass: '649286'
-          newdb_qid: EL9bIOj32ODtMygD
         requestId: ade58bc1-2830-59ec-9933-15e0b2ad6947
     passport_mvdRequest:
       type: object
@@ -2094,8 +2089,6 @@ components:
             case_id:
               type: integer
               example: '1145323'
-            newdb_qid:
-              type: string
             country:
               type: string
               example: ru
@@ -2106,7 +2099,6 @@ components:
               example: pravo_cases_details
           required:
           - case_id
-          - newdb_qid
           - country
           - method
           additionalProperties: true
