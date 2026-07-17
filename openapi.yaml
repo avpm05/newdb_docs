@@ -49,6 +49,7 @@ paths:
               - $ref: '#/components/schemas/fns_block_personRequest'
               - $ref: '#/components/schemas/egrul_ipRequest'
               - $ref: '#/components/schemas/terroristRequest'
+              - $ref: '#/components/schemas/mvd_wantedRequest'
               - $ref: '#/components/schemas/foreign_vngRequest'
               - $ref: '#/components/schemas/foreign_patentRequest'
               - $ref: '#/components/schemas/foreign_rvp_stampRequest'
@@ -184,6 +185,17 @@ paths:
                     method: terrorist
                     country: ru
                   requestId: 00000000-0000-0000-0000-000000000000
+              mvd_wanted:
+                summary: mvd_wanted — Проверка физлица в розыске МВД
+                value:
+                  params:
+                    method: mvd_wanted
+                    lastname: Иванов
+                    firstname: Иван
+                    secondname: Иванович
+                    dob: '1990-01-01'
+                    email: client@example.com
+                  requestId: 00000000-0000-4000-8000-000000000101
               foreign_vng:
                 summary: foreign_vng — Вид на жительство (ВНЖ)
                 value:
@@ -511,6 +523,7 @@ paths:
           - fns_block_person
           - egrul_ip
           - terrorist
+          - mvd_wanted
           - foreign_vng
           - foreign_patent
           - foreign_rvp_stamp
@@ -1240,6 +1253,65 @@ components:
           method: terrorist
           country: ru
         requestId: 00000000-0000-0000-0000-000000000000
+    mvd_wantedRequest:
+      type: object
+      description: Метод NEWDB mvd_wanted ищет физическое лицо в публичном сервисе МВД России «Внимание, розыск!» по ФИО и дате рождения.
+      properties:
+        params:
+          type: object
+          properties:
+            method:
+              type: string
+              enum:
+              - mvd_wanted
+              example: mvd_wanted
+            lastname:
+              type: string
+              example: Иванов
+            firstname:
+              type: string
+              example: Иван
+            secondname:
+              type: string
+              example: Иванович
+            dob:
+              type: string
+              description: Дата рождения. Допускается формат DD.MM.YYYY или YYYY-MM-DD.
+              example: '1990-01-01'
+            email:
+              type: string
+              format: email
+              description: Email нужен источнику МВД для отправки формы и не возвращается в result.
+              example: client@example.com
+          required:
+          - method
+          - lastname
+          - firstname
+          - dob
+          - email
+          additionalProperties: true
+        requestId:
+          type: string
+          format: uuid
+          example: 00000000-0000-4000-8000-000000000101
+        webhook:
+          type: string
+          format: uri
+          example: https://example.com/newdb-webhook
+        taskId:
+          type: string
+      required:
+      - params
+      additionalProperties: false
+      example:
+        params:
+          method: mvd_wanted
+          lastname: Иванов
+          firstname: Иван
+          secondname: Иванович
+          dob: '1990-01-01'
+          email: client@example.com
+        requestId: 00000000-0000-4000-8000-000000000101
     foreign_vngRequest:
       type: object
       description: 'foreign_vng — Вид на жительство (ВНЖ). Источник: docs/foreign/01-foreign_vng.md.'

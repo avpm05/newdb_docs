@@ -29,3 +29,4 @@ meta:
 - [fns_block_person](10-fns_block_person.md) — блокировки счетов физлица по данным ФНС
 - [egrul_ip](11-egrul_ip.md) — сведения ЕГРИП и статус ИП
 - [terrorist](12-terrorist.md) — проверка по перечням терроризма, экстремизма и ОМУ
+- [mvd_wanted](13-mvd_wanted.md) — проверка физлица в розыске МВД
