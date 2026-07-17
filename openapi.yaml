@@ -50,6 +50,7 @@ paths:
               - $ref: '#/components/schemas/egrul_ipRequest'
               - $ref: '#/components/schemas/terroristRequest'
               - $ref: '#/components/schemas/mvd_wantedRequest'
+              - $ref: '#/components/schemas/inoagentRequest'
               - $ref: '#/components/schemas/foreign_vngRequest'
               - $ref: '#/components/schemas/foreign_patentRequest'
               - $ref: '#/components/schemas/foreign_rvp_stampRequest'
@@ -196,6 +197,15 @@ paths:
                     dob: '1990-01-01'
                     email: client@example.com
                   requestId: 00000000-0000-4000-8000-000000000101
+              inoagent:
+                summary: inoagent — Проверка физлица в реестре иностранных агентов
+                value:
+                  params:
+                    method: inoagent
+                    lastname: Иванов
+                    firstname: Иван
+                    secondname: Иванович
+                  requestId: 00000000-0000-4000-8000-000000000201
               foreign_vng:
                 summary: foreign_vng — Вид на жительство (ВНЖ)
                 value:
@@ -524,6 +534,7 @@ paths:
           - egrul_ip
           - terrorist
           - mvd_wanted
+          - inoagent
           - foreign_vng
           - foreign_patent
           - foreign_rvp_stamp
@@ -1313,6 +1324,62 @@ components:
           email: client@example.com
         requestId: 00000000-0000-4000-8000-000000000101
     foreign_vngRequest:
+    inoagentRequest:
+      type: object
+      description: Метод NEWDB inoagent ищет физическое лицо в реестре иностранных агентов Минюста России по ФИО.
+      properties:
+        params:
+          type: object
+          properties:
+            method:
+              type: string
+              enum:
+              - inoagent
+              example: inoagent
+            lastname:
+              type: string
+              example: Иванов
+            firstname:
+              type: string
+              example: Иван
+            secondname:
+              type: string
+              example: Иванович
+            fio:
+              type: string
+              description: Альтернативный способ передать ФИО одной строкой.
+              example: Иванов Иван Иванович
+            query:
+              type: string
+              description: Алиас для ФИО одной строкой.
+              example: Иванов Иван Иванович
+            full_name:
+              type: string
+              description: Алиас для ФИО одной строкой.
+              example: Иванов Иван Иванович
+          required:
+          - method
+          additionalProperties: true
+        requestId:
+          type: string
+          format: uuid
+          example: 00000000-0000-4000-8000-000000000201
+        webhook:
+          type: string
+          format: uri
+          example: https://example.com/newdb-webhook
+        taskId:
+          type: string
+      required:
+      - params
+      additionalProperties: false
+      example:
+        params:
+          method: inoagent
+          lastname: Иванов
+          firstname: Иван
+          secondname: Иванович
+        requestId: 00000000-0000-4000-8000-000000000201
       type: object
       description: 'foreign_vng — Вид на жительство (ВНЖ). Источник: docs/foreign/01-foreign_vng.md.'
       properties:

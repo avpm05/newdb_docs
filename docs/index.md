@@ -70,6 +70,7 @@ X-API-KEY: <your_token>
 - [fns_block_person](fiz/10-fns_block_person.md) — блокировки счетов физлица по данным ФНС
 - [egrul_ip](fiz/11-egrul_ip.md) — сведения ЕГРИП и статус ИП по `innfiz`
 - [terrorist](fiz/12-terrorist.md) — проверка на причастность к терроризму, экстремизму и распространению ОМУ
+- [inoagent](fiz/14-inoagent.md) — проверка физлица в реестре иностранных агентов Минюста
 
 ### Иностранные граждане
 
