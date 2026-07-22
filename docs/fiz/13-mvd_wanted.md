@@ -48,8 +48,7 @@ X-API-KEY: <your_token>
     "lastname": "string",
     "firstname": "string",
     "secondname": "string, optional",
-    "dob": "DD.MM.YYYY",
-    "email": "string"
+    "dob": "DD.MM.YYYY"
   },
   "webhook": "https://your.host/webhook",
   "requestId": "optional-string"

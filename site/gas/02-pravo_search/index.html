@@ -1255,6 +1255,15 @@
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
+      Пагинация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
       Служебные значения
     </span>
   </a>
@@ -1286,7 +1295,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       Обязательность параметров
     </span>
@@ -1295,7 +1304,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       Пример запроса
     </span>
@@ -1304,7 +1313,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       Пример ответа
     </span>
@@ -1614,6 +1623,15 @@
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
+      Пагинация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
       Служебные значения
     </span>
   </a>
@@ -1645,7 +1663,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       Обязательность параметров
     </span>
@@ -1654,7 +1672,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       Пример запроса
     </span>
@@ -1663,7 +1681,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       Пример ответа
     </span>
@@ -1746,9 +1764,58 @@ X-API-KEY: <your_token></p>
 <td>Основной поисковый текст для поиска судебных дел</td>
 <td>Любой текст: ФИО, организация, номер дела, фрагмент карточки</td>
 </tr>
+<tr>
+<td><code>page</code></td>
+<td>Нет</td>
+<td>Номер страницы результатов</td>
+<td>Целое число от <code>1</code>. Алиасы: <code>page_number</code>, <code>pageNumber</code>. По умолчанию <code>1</code></td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td>Нет</td>
+<td>Размер страницы</td>
+<td>Целое число от <code>1</code> до <code>20</code>. Алиасы: <code>pageSize</code>, <code>limit</code>. По умолчанию <code>20</code></td>
+</tr>
 </tbody>
 </table>
-<h2 id="_7">Служебные значения<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_7">Пагинация<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Метод <code>pravo_search</code> реализован в <code>ods_case_search.py</code> и использует постраничную выдачу через <code>page</code> и <code>page_size</code>.</p>
+<ul>
+<li><code>page</code> начинается с <code>1</code>.</li>
+<li>Максимальный <code>page_size</code> — <code>20</code>. Если передать больше <code>20</code>, метод ограничит значение до <code>20</code>.</li>
+<li>Вместо <code>page_size</code> можно передать <code>limit</code>; метод использует его как размер страницы.</li>
+<li>Внутреннее смещение считается как <code>(page - 1) * page_size</code>.</li>
+<li>На каждую следующую страницу отправляйте новый запрос с новым <code>requestId</code>.</li>
+</ul>
+<p>Пример последовательности:</p>
+<div class="highlight"><pre><span></span><code>1-я страница: page=1, page_size=20
+2-я страница: page=2, page_size=20
+3-я страница: page=3, page_size=20
+</code></pre></div>
+<p>Пример запроса второй страницы:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Антосенко Александр Иванович&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pravo_search&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;requestId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b2b13d26-1c10-4e35-a60e-7f38c73064bc&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>В ответе блок <code>meta</code> содержит поля пагинации:</p>
+<ul>
+<li><code>page</code> — номер запрошенной страницы.</li>
+<li><code>page_size</code> — фактический размер страницы.</li>
+<li><code>offset</code> — рассчитанное смещение.</li>
+<li><code>total_count</code> — общее количество найденных дел по фильтру.</li>
+<li><code>returned_count</code> — сколько дел вернул текущий ответ.</li>
+<li><code>has_more</code> — есть ли следующая страница.</li>
+<li><code>pages_count</code> — всего страниц при текущем <code>page_size</code>.</li>
+</ul>
+<p>Останавливайте обход, когда <code>meta.has_more = false</code> или текущий ответ вернул пустой <code>data</code>.</p>
+<h2 id="_8">Служебные значения<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <h3 id="country"><code>country</code><a class="headerlink" href="#country" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Для метода используется значение <code>ru</code></li>
@@ -1757,14 +1824,14 @@ X-API-KEY: <your_token></p>
 <ul>
 <li>Актуальное значение: <code>pravo_search</code></li>
 </ul>
-<h2 id="_8">Обязательность параметров<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_9">Обязательность параметров<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>Формально для вызова нужно передать:</p>
 <ul>
 <li><code>query</code></li>
 <li><code>country</code></li>
 <li><code>method</code></li>
 </ul>
-<h2 id="_9">Пример запроса<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_10">Пример запроса<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="err">POST</span><span class="w"> </span><span class="err">/v</span><span class="mi">2</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
 <span class="err">Hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">api.</span><span class="kc">ne</span><span class="err">wdb.</span><span class="kc">net</span>
 <span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
@@ -1774,12 +1841,14 @@ X-API-KEY: <your_token></p>
 <span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Антосенко Александр Иванович&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pravo_search&quot;</span>
+<span class="w">    </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pravo_search&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;requestId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a3962f18-3919-5473-b51d-44c133faa911&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_10">Пример ответа<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_11">Пример ответа<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>Ниже пример в формате, который соответствует текущему коду поиска: в <code>data[]</code> возвращаются карточки дел с вложенными <code>parties</code> и <code>acts</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -1812,8 +1881,11 @@ X-API-KEY: <your_token></p>
 <span class="w">          </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Антосенко Александр Иванович&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;case_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">11051155</span><span class="p">]</span>
+<span class="w">          </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;total_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;returned_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;has_more&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;pages_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
